@@ -12,7 +12,7 @@ const users = [
     role: "client",
     portfolio_value: "CHF 2,500,000",
     accounts: [
-      { id: "acc-001", name: "Primary Account", balance: "CHF 2,500,000", type: "VP Vida Advanced" },
+      { id: "acc-001", name: "Managed Portfolio", balance: "CHF 2,500,000", type: "Wealth Management" },
     ],
   },
   {

@@ -4,21 +4,21 @@ import { createTheme } from "@mui/material/styles";
 const shaelcoreTheme = createTheme({
   palette: {
     mode: "light",
-    primary:   { main: "#0d2137", contrastText: "#ffffff" },
-    secondary: { main: "#b8975a", contrastText: "#0d2137" },
-    background:{ default: "#fafaf8", paper: "#ffffff" },
+    primary:   { main: "#101418", contrastText: "#ffffff" },
+    secondary: { main: "#B86F43", contrastText: "#101418" },
+    background:{ default: "#F7F4EC", paper: "#ffffff" },
     text: {
-      primary:   "#0d2137",
-      secondary: "#4a5568",
+      primary:   "#101418",
+      secondary: "#505B5A",
     },
-    divider: "#e2ddd6",
+    divider: "#D8CDBB",
   },
   typography: {
     fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif",
-    h1: { fontFamily: "'Georgia', 'Times New Roman', serif", fontWeight: 700, letterSpacing: "-0.02em" },
-    h2: { fontFamily: "'Georgia', 'Times New Roman', serif", fontWeight: 700, letterSpacing: "-0.015em" },
-    h3: { fontFamily: "'Georgia', 'Times New Roman', serif", fontWeight: 600 },
-    h4: { fontFamily: "'Georgia', 'Times New Roman', serif", fontWeight: 600 },
+    h1: { fontFamily: "'Space Grotesk', 'Inter', sans-serif", fontWeight: 700, letterSpacing: "-0.02em" },
+    h2: { fontFamily: "'Space Grotesk', 'Inter', sans-serif", fontWeight: 700, letterSpacing: "-0.015em" },
+    h3: { fontFamily: "'Space Grotesk', 'Inter', sans-serif", fontWeight: 600 },
+    h4: { fontFamily: "'Space Grotesk', 'Inter', sans-serif", fontWeight: 600 },
     h5: { fontFamily: "'Inter', sans-serif", fontWeight: 600 },
     h6: { fontFamily: "'Inter', sans-serif", fontWeight: 600 },
     button: { textTransform: "none", fontWeight: 600, letterSpacing: "0.01em" },
@@ -39,24 +39,24 @@ const shaelcoreTheme = createTheme({
         {
           props: { variant: "contained", color: "primary" },
           style: {
-            background: "#0d2137",
-            "&:hover": { background: "#b8975a", color: "#0d2137" },
+            background: "#101418",
+            "&:hover": { background: "#B86F43", color: "#101418" },
             transition: "background 0.2s, color 0.2s",
           },
         },
         {
           props: { variant: "contained", color: "secondary" },
           style: {
-            background: "#b8975a",
-            color: "#0d2137",
-            "&:hover": { background: "#cdb07a" },
+            background: "#B86F43",
+            color: "#101418",
+            "&:hover": { background: "#F0B968" },
           },
         },
         {
           props: { variant: "outlined", color: "primary" },
           style: {
-            borderColor: "#0d2137",
-            "&:hover": { background: "#0d2137", color: "#ffffff" },
+            borderColor: "#101418",
+            "&:hover": { background: "#101418", color: "#ffffff" },
           },
         },
       ],
@@ -65,17 +65,17 @@ const shaelcoreTheme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 4,
-          boxShadow: "0 1px 4px rgba(13,33,55,0.07)",
-          border: "1px solid #e2ddd6",
+          boxShadow: "0 1px 4px rgba(16,20,24,0.07)",
+          border: "1px solid #D8CDBB",
           transition: "box-shadow 0.22s, transform 0.22s",
           "&:hover": {
-            boxShadow: "0 8px 28px -6px rgba(13,33,55,0.13)",
+            boxShadow: "0 8px 28px -6px rgba(16,20,24,0.13)",
           },
         },
       },
     },
     MuiDivider: {
-      styleOverrides: { root: { borderColor: "#e2ddd6" } },
+      styleOverrides: { root: { borderColor: "#D8CDBB" } },
     },
     MuiChip: {
       styleOverrides: {
@@ -87,9 +87,9 @@ const shaelcoreTheme = createTheme({
         root: {
           "& .MuiOutlinedInput-root": {
             borderRadius: 2,
-            "& fieldset": { borderColor: "#e2ddd6" },
-            "&:hover fieldset": { borderColor: "#b8975a" },
-            "&.Mui-focused fieldset": { borderColor: "#0d2137" },
+            "& fieldset": { borderColor: "#D8CDBB" },
+            "&:hover fieldset": { borderColor: "#B86F43" },
+            "&.Mui-focused fieldset": { borderColor: "#101418" },
           },
         },
       },
@@ -97,7 +97,7 @@ const shaelcoreTheme = createTheme({
     MuiAccordion: {
       styleOverrides: {
         root: {
-          border: "1px solid #e2ddd6",
+          border: "1px solid #D8CDBB",
           borderRadius: "4px !important",
           boxShadow: "none",
           "&:before": { display: "none" },
@@ -110,7 +110,7 @@ const shaelcoreTheme = createTheme({
         root: {
           padding: "0 20px",
           "&.Mui-expanded": { minHeight: 52 },
-          "&:hover": { background: "#f5f2ed" },
+          "&:hover": { background: "#E9E1D2" },
         },
         content: { margin: "14px 0", fontWeight: 500 },
       },

@@ -16,9 +16,9 @@ import CircularProgress from "@mui/material/CircularProgress";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 
-const NAVY = "#0d2137";
-const GOLD = "#b8975a";
-const CREAM = "#f5f2ed";
+const NAVY = "#101418";
+const GOLD = "#B86F43";
+const CREAM = "#E9E1D2";
 
 // Wrapper component for Next.js Link with Material-UI components
 const LocalLinkComponent = forwardRef<
@@ -121,7 +121,7 @@ export default function RegisterPage() {
               <Typography sx={{ color: "#fff", fontSize: "2rem" }}>✓</Typography>
             </Box>
             <Typography variant="h5" sx={{ color: NAVY, mb: 1 }}>
-              Welcome to Shaelcore!
+              Welcome to ShaelCore!
             </Typography>
             <Typography sx={{ color: "#6b7280", mb: 3 }}>
               Your account has been created. Redirecting to dashboard...
@@ -149,7 +149,7 @@ export default function RegisterPage() {
         sx={{
           width: "100%",
           maxWidth: 420,
-          boxShadow: "0 8px 32px -8px rgba(13,33,55,0.15)",
+          boxShadow: "0 8px 32px -8px rgba(16,20,24,0.15)",
         }}
       >
         <CardContent sx={{ p: 5 }}>
@@ -172,7 +172,7 @@ export default function RegisterPage() {
             </Box>
             <Typography
               sx={{
-                fontFamily: "Georgia, serif",
+                fontFamily: "Space Grotesk, sans-serif",
                 fontSize: "1.8rem",
                 color: NAVY,
                 mb: 0.5,
@@ -181,7 +181,7 @@ export default function RegisterPage() {
               Create Account
             </Typography>
             <Typography sx={{ color: "#9ca3af", fontSize: "0.9rem" }}>
-              Join Shaelcore today
+              Join ShaelCore today
             </Typography>
           </Box>
 

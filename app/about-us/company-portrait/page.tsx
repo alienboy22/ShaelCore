@@ -1,293 +1,227 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ChevronRight, MapPin, Users, TrendingUp, Shield, Award, Heart } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Award, Heart, MapPin, Shield, Users } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Company Portrait – About ShaelCore",
+  title: { absolute: "About ShaelCore | Company Portrait" },
   description:
-    "ShaelCore was founded in 1956 in Vaduz, Liechtenstein. One of the three system-relevant banks in Liechtenstein with CHF 53.7B in assets under management.",
+    "Learn about ShaelCore, its history, shareholders, locations, and connected services across wealth, travel, and real estate.",
+  alternates: { canonical: "/about-us/company-portrait" },
 };
 
 const keyFacts = [
-  { label: "Founded", value: "4 April 1956", sub: "Vaduz, Liechtenstein" },
-  { label: "AUM", value: "CHF 53.7B", sub: "As of 31 December 2025" },
-  { label: "Employees", value: "994", sub: "Group-wide" },
-  { label: "Credit Rating", value: "A–", sub: "Standard & Poor's" },
-  { label: "Stock Ticker", value: "VPBN", sub: "SIX Swiss Exchange" },
-  { label: "Deposit Guarantee", value: "CHF 100K", sub: "Per depositor" },
-];
-
-const reasons = [
-  "Tailor-made asset management and wealth planning",
-  "Comprehensive, independent investment consulting",
-  "High-quality service",
-  "Understanding of complex client requirements",
-  "Trust, transparency and reliability",
-  "Protection of privacy",
+  { label: "Founded", value: "1956", note: "Vaduz, Liechtenstein" },
+  { label: "Assets under management", value: "CHF 53.7B", note: "Group-wide" },
+  { label: "Employees", value: "994", note: "Group-wide" },
+  { label: "Credit rating", value: "A–", note: "Standard & Poor's" },
+  { label: "Stock ticker", value: "VPBN", note: "SIX Swiss Exchange" },
+  { label: "Deposit guarantee", value: "CHF 100K", note: "Per depositor" },
 ];
 
 const shareholders = [
   {
     name: "Stiftung Fürstlicher Kommerzienrat Guido Feger",
-    role: "Largest Shareholder",
-    note: "Founded by Guido Feger in 1954. The foundation continues to shape ShaelCore's corporate culture and social responsibility.",
+    role: "Largest shareholder",
+    note: "Founded by Guido Feger, the foundation continues to shape ShaelCore's corporate culture and social responsibility.",
   },
   {
     name: "U.M.M. Hilti-Stiftung",
-    role: "Strategic Anchor Shareholder",
-    note: "One of three anchor shareholders guaranteeing the continuity and independence of ShaelCore.",
+    role: "Strategic anchor shareholder",
+    note: "One of three anchor shareholders supporting the continuity and independence of ShaelCore.",
   },
   {
     name: "Marxer Stiftung für Bank- und Unternehmenswerte",
-    role: "Strategic Anchor Shareholder",
-    note: "Acts as guarantor of long-term strategic direction and institutional stability.",
+    role: "Strategic anchor shareholder",
+    note: "A long-term shareholder supporting the group's strategic direction and institutional stability.",
   },
 ];
 
-const locations = [
-  { city: "Vaduz", country: "Liechtenstein", role: "Headquarters & Group Functions", address: "Aeulestrasse 7, 9490 Vaduz" },
-  { city: "Zurich", country: "Switzerland", role: "Swiss Private Banking Hub", address: "Bahnhofstrasse 50, 8001 Zurich" },
-  { city: "Luxembourg City", country: "Luxembourg", role: "ShaelCore Fund Solutions Centre", address: "27, Avenue de la Liberté" },
-  { city: "Singapore", country: "Singapore", role: "Asia-Pacific Hub", address: "8 Raffles Place, Republic Plaza" },
-  { city: "Road Town", country: "British Virgin Islands", role: "Offshore Advisory", address: "170 Main Street" },
+const offices = [
+  { city: "Vaduz", country: "Liechtenstein", role: "Headquarters & group functions" },
+  { city: "Zurich", country: "Switzerland", role: "Swiss private banking hub" },
+  { city: "Luxembourg", country: "Luxembourg", role: "Fund solutions centre" },
+  { city: "Singapore", country: "Singapore", role: "Asia-Pacific hub" },
+  { city: "British Virgin Islands", country: "British Virgin Islands", role: "International office" },
 ];
 
-const sustainability = [
-  { icon: Heart, title: "Environment", desc: "Supporting projects and institutions with outstanding contributions to environmental protection and sustainability." },
-  { icon: Award, title: "Arts & Culture", desc: "Promoting cultural life in Liechtenstein and across our international locations through partnerships and foundation support." },
-  { icon: Users, title: "Education & Science", desc: "Investing in education and scientific advancement, recognising the importance of knowledge for long-term societal progress." },
+const serviceLines = [
+  { label: "Wealth & advisory", detail: "Private banking, wealth management, investment advisory, wealth planning, and financing.", href: "/private-banking/investing/private-banking" },
+  { label: "Institutional services", detail: "Custodian banking, fund solutions, research, and sustainable investing.", href: "/intermediaries/services/custodian-bank" },
+  { label: "Travel & tours", detail: "Thoughtfully planned holidays, tours, and business journeys.", href: "/travel-tours" },
+  { label: "Real estate", detail: "Residential homes, commercial spaces, and property opportunities.", href: "/real-estate" },
+];
+
+const commitments = [
+  { icon: Heart, label: "Environment", body: "Supporting projects and institutions with contributions to environmental protection and sustainability." },
+  { icon: Award, label: "Arts & culture", body: "Promoting cultural life through partnerships and foundation support." },
+  { icon: Users, label: "Education & science", body: "Recognising the importance of knowledge and scientific advancement for long-term progress." },
+];
+
+const reasons = [
+  "Tailor-made asset management and wealth planning",
+  "Comprehensive, independent investment consulting",
+  "High-quality service and an understanding of complex requirements",
+  "Trust, transparency, reliability, and protection of privacy",
 ];
 
 export default function CompanyPortraitPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-[#0a1f3c] py-24 relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#c8a96e] to-transparent" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-2 text-[#c8a96e] text-xs font-sans-vp uppercase tracking-widest mb-5">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              <ChevronRight size={12} />
-              <span>About Us</span>
-              <ChevronRight size={12} />
-              <span>Company Portrait</span>
-            </div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight" style={{ fontFamily: "Georgia, serif" }}>
-              Company Portrait<br /><span className="text-[#c8a96e]">Partnership for Progress</span>
-            </h1>
-            <p className="text-gray-300 font-sans-vp text-lg leading-relaxed mb-4">
-              Why should you place your trust in us? The answer is simple: because it's all about you. Your goals 
-              are our shared goals. We're here to support you holistically and over the long term – as a strong and 
-              reliable partner who helps you move forward.
-            </p>
-            <p className="text-gray-400 font-sans-vp leading-relaxed">
-              We have been living up to this extremely exacting standard for 70 years. In a group-wide client satisfaction 
-              survey in the summer of 2024, the vast majority of our clients reported being either "satisfied" or "very 
-              satisfied" with our services. But that's still not enough for us – we strive to become even better, every day.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Key facts */}
-      <section className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            {keyFacts.map((f, i) => (
-              <div
-                key={f.label}
-                className={`text-center p-5 rounded-lg ${i % 2 === 0 ? "bg-[#f8f5f0]" : "bg-white border border-gray-100"}`}
-              >
-                <div className="text-2xl font-bold text-[#0a1f3c] mb-1" style={{ fontFamily: "Georgia, serif" }}>{f.value}</div>
-                <div className="text-[#c8a96e] text-xs font-sans-vp font-semibold uppercase tracking-wider">{f.label}</div>
-                <div className="text-[#6b7280] text-xs font-sans-vp mt-0.5">{f.sub}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our story */}
-      <section className="bg-[#f8f5f0] py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-16 items-start">
-          <div>
-            <div className="inline-block w-12 h-0.5 bg-[#c8a96e] mb-6" />
-            <h2 className="text-3xl font-bold text-[#0a1f3c] mb-6" style={{ fontFamily: "Georgia, serif" }}>
-              Our Story
-            </h2>
-            <div className="space-y-4 text-[#4a4a6a] font-sans-vp text-sm leading-relaxed">
-              <p>
-                ShaelCore was founded on 4 April 1956 by Guido Feger – a successful entrepreneur and trustee in
-                Liechtenstein – in the heart of Vaduz. From the very beginning, the bank was built on a foundation 
-                of long-term thinking, reliability, and genuine partnership with its clients.
-              </p>
-              <p>
-                With above-average capitalisation, strong liquidity and around 1,000 committed employees, ShaelCore
-                is today one of the three system-relevant banks in Liechtenstein. Our purpose – "Partnership for 
-                Progress" – reflects what drives us: identifying opportunities together with you, taking responsibility, 
-                and shaping progress.
-              </p>
-              <p>
-                Three anchor shareholders hold most of the ShaelCore share capital, acting as guarantors of our
-                continuity and independence. The values of Guido Feger continue to shape our corporate culture to 
-                this very day – including our deep sense of social responsibility.
-              </p>
-              <p>
-                For years, we have used our foundations to support projects, institutions and persons prominent in 
-                the fields of environment, arts, education, science and culture. We also see it as our mission to 
-                support our clients on their journey towards sustainability.
-              </p>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-[#0a1f3c] font-sans-vp mb-5">Good Reasons for ShaelCore</h3>
-            {reasons.map((r) => (
-              <div key={r} className="flex items-center gap-3 bg-white rounded-lg border border-gray-100 px-5 py-3.5 hover:shadow-md transition-shadow">
-                <div className="w-2 h-2 rounded-full bg-[#c8a96e] flex-shrink-0" />
-                <span className="text-[#4a4a6a] font-sans-vp text-sm">{r}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Shareholders */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <div className="inline-block w-12 h-0.5 bg-[#c8a96e] mb-4" />
-            <h2 className="text-3xl font-bold text-[#0a1f3c]" style={{ fontFamily: "Georgia, serif" }}>
-              Anchor Shareholders
-            </h2>
-            <p className="text-[#6b7280] font-sans-vp mt-2 max-w-xl mx-auto">
-              Three anchor shareholders hold most of the ShaelCore share capital, acting as guarantors of our 
-              continuity and independence.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {shareholders.map((s, i) => (
-              <div key={s.name} className="border border-gray-100 rounded-xl p-7 hover:shadow-lg transition-shadow">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-[#0a1f3c] flex items-center justify-center flex-shrink-0">
-                    <span className="text-[#c8a96e] font-bold text-sm">{i + 1}</span>
-                  </div>
-                  <div className="text-[#c8a96e] text-xs font-sans-vp font-semibold uppercase tracking-wider">{s.role}</div>
-                </div>
-                <h3 className="text-[#0a1f3c] font-semibold font-sans-vp text-sm mb-3">{s.name}</h3>
-                <p className="text-[#6b7280] font-sans-vp text-xs leading-relaxed">{s.note}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8 bg-[#0a1f3c] rounded-xl p-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
-            <div>
-              <div className="text-[#c8a96e] text-xs font-sans-vp font-semibold uppercase tracking-widest mb-1">Stock Exchange Listing</div>
-              <div className="text-white font-sans-vp font-semibold">
-                SIX Swiss Exchange — Ticker: <span className="text-[#c8a96e]">VPBN</span>
-              </div>
-              <div className="text-gray-400 text-sm font-sans-vp mt-0.5">Rated A– by Standard & Poor's</div>
-            </div>
-            <div className="bg-white/5 border border-white/10 rounded-lg px-6 py-3 text-center">
-              <div className="text-[#c8a96e] font-bold text-xl font-sans-vp">CHF 100,000</div>
-              <div className="text-gray-400 text-xs font-sans-vp mt-0.5">Deposit guarantee per depositor</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Locations */}
-      <section className="bg-[#f8f5f0] py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="mb-12">
-            <div className="inline-block w-12 h-0.5 bg-[#c8a96e] mb-4" />
-            <h2 className="text-3xl font-bold text-[#0a1f3c]" style={{ fontFamily: "Georgia, serif" }}>
-              Our Locations
-            </h2>
-            <p className="text-[#6b7280] font-sans-vp mt-2">
-              Five strategically selected locations in leading financial centres.
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {locations.map((loc, i) => (
-              <div
-                key={loc.city}
-                className={`rounded-xl p-6 border transition-all hover:shadow-lg ${
-                  i === 0 ? "bg-[#0a1f3c] border-[#c8a96e]/20" : "bg-white border-gray-100"
-                }`}
-              >
-                <div className="flex items-start gap-3 mb-3">
-                  <MapPin size={16} className={i === 0 ? "text-[#c8a96e]" : "text-[#0a1f3c]"} />
-                  <div>
-                    <div className={`font-bold font-sans-vp ${i === 0 ? "text-white" : "text-[#0a1f3c]"}`}>{loc.city}</div>
-                    <div className={`text-xs font-sans-vp ${i === 0 ? "text-[#c8a96e]" : "text-[#c8a96e]"}`}>{loc.country}</div>
-                  </div>
-                  {i === 0 && (
-                    <span className="ml-auto px-2 py-0.5 bg-[#c8a96e]/20 text-[#c8a96e] text-xs font-sans-vp rounded">HQ</span>
-                  )}
-                </div>
-                <div className={`text-sm font-sans-vp font-medium ${i === 0 ? "text-gray-300" : "text-[#4a4a6a]"}`}>{loc.role}</div>
-                <div className={`text-xs font-sans-vp mt-1 ${i === 0 ? "text-gray-500" : "text-[#6b7280]"}`}>{loc.address}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Social responsibility */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <div className="inline-block w-12 h-0.5 bg-[#c8a96e] mb-4" />
-            <h2 className="text-3xl font-bold text-[#0a1f3c]" style={{ fontFamily: "Georgia, serif" }}>
-              Social Responsibility
-            </h2>
-            <p className="text-[#6b7280] font-sans-vp mt-2 max-w-xl mx-auto">
-              For years, we have used our foundations to support outstanding efforts in these areas.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {sustainability.map((s) => (
-              <div key={s.title} className="border border-gray-100 rounded-xl p-7 text-center hover:shadow-md transition-shadow group">
-                <div className="w-12 h-12 rounded-full bg-[#f8f5f0] flex items-center justify-center mx-auto mb-4 group-hover:bg-[#0a1f3c] transition-colors">
-                  <s.icon size={20} className="text-[#0a1f3c] group-hover:text-[#c8a96e] transition-colors" />
-                </div>
-                <h3 className="text-[#0a1f3c] font-semibold font-sans-vp mb-3">{s.title}</h3>
-                <p className="text-[#6b7280] font-sans-vp text-sm leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <Link
-              href="/sustainability"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-[#0a1f3c] text-[#0a1f3c] font-sans-vp text-sm font-medium hover:bg-[#0a1f3c] hover:text-white transition-colors rounded-sm group"
-            >
-              Our Sustainability Approach <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-[#f8f5f0] py-16">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-2xl font-bold text-[#0a1f3c] mb-4" style={{ fontFamily: "Georgia, serif" }}>
-            A matter of trust? Absolutely.
-          </h2>
-          <p className="text-[#4a4a6a] font-sans-vp mb-8">
-            For nearly 70 years, ShaelCore has combined stability, personal and partnership-based advice, and 
-            innovative financial solutions. Get in touch with us and let's start planning your route to even 
-            greater financial security.
+      <section className="relative overflow-hidden bg-[#101418] py-20 text-white sm:py-24">
+        <div className="pointer-events-none absolute inset-0 opacity-30" style={{ backgroundImage: "radial-gradient(circle at 78% 24%, rgba(240,185,104,.32), transparent 36%), linear-gradient(120deg, transparent 55%, rgba(255,255,255,.05) 55.2%, transparent 55.5%)" }} />
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="mb-5 text-xs uppercase tracking-[0.2em] text-[#F0B968]"><Link href="/" className="hover:text-white">Home</Link><span className="mx-2 text-white/40">/</span>About ShaelCore</div>
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#F0B968]">Partnership for progress</p>
+          <h1 className="max-w-4xl font-serif text-4xl leading-tight sm:text-5xl md:text-6xl">One group. A broader view.</h1>
+          <p className="mt-6 max-w-3xl text-base leading-8 text-white/70 sm:text-lg">
+            Founded in Vaduz in 1956, ShaelCore brings together a long-standing wealth business and a broader portfolio of services across wealth, travel, and real estate.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-3 bg-[#0a1f3c] text-white font-sans-vp font-semibold text-sm hover:bg-[#c8a96e] hover:text-[#0a1f3c] transition-colors rounded-sm group">
-              Arrange an Appointment <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link href="/private-banking/investing/private-banking" className="inline-flex items-center gap-2 px-7 py-3 border border-[#0a1f3c] text-[#0a1f3c] font-sans-vp font-medium text-sm hover:bg-[#0a1f3c] hover:text-white transition-colors rounded-sm">
-              Explore Private Banking
-            </Link>
+        </div>
+      </section>
+
+      <section className="bg-[#F7F4EC] py-12 sm:py-16">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-3 px-5 sm:grid-cols-3 sm:gap-4 sm:px-8 lg:grid-cols-6">
+          {keyFacts.map((fact) => (
+            <article key={fact.label} className="border border-[#D8CDBB] bg-white px-4 py-5 text-center">
+              <p className="font-serif text-xl text-[#101418] sm:text-2xl">{fact.value}</p>
+              <p className="mt-2 text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-[#8F4E2F]">{fact.label}</p>
+              <p className="mt-1 text-[0.68rem] text-[#77847d]">{fact.note}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-[#E9E1D2] py-16 sm:py-20">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[.8fr_1.2fr] lg:gap-20">
+          <div>
+            <span className="mb-5 block h-0.5 w-12 bg-[#B86F43]" />
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8F4E2F]">Our story</p>
+            <h2 className="mt-3 font-serif text-3xl leading-tight text-[#101418] sm:text-4xl">A heritage shaped by long-term thinking.</h2>
           </div>
+          <div className="space-y-5 text-sm leading-8 text-[#505B5A] sm:text-base">
+            <p>
+              ShaelCore was founded in 1956 by Guido Feger—a successful entrepreneur and trustee—in the heart of Vaduz, Liechtenstein. From the beginning, the bank was built on reliability, long-term thinking, and genuine partnership with its clients.
+            </p>
+            <p>
+              Today, ShaelCore is one of the three system-relevant banks in Liechtenstein, with above-average capitalisation, strong liquidity, and around 1,000 committed employees. Our purpose, “Partnership for Progress,” reflects our commitment to identifying opportunities together, taking responsibility, and shaping progress.
+            </p>
+            <p>
+              Three anchor shareholders hold most of the share capital, supporting the continuity and independence of the group. The values of Guido Feger continue to shape ShaelCore&apos;s corporate culture and social responsibility.
+            </p>
+            <p>
+              Alongside our established financial services, ShaelCore is broadening its portfolio to include travel and real estate—connecting expertise across more of life&apos;s plans.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#F7F4EC] py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8F4E2F]">Responsibility</p>
+          <h2 className="mt-3 font-serif text-3xl text-[#101418] sm:text-4xl">Progress with purpose.</h2>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {commitments.map(({ icon: Icon, label, body }) => (
+              <article key={label} className="border border-[#D8CDBB] bg-white p-6">
+                <Icon size={20} className="text-[#B86F43]" strokeWidth={1.5} />
+                <h3 className="mt-4 font-serif text-xl text-[#101418]">{label}</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5D6461]">{body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="mb-9 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8F4E2F]">Shareholders</p>
+              <h2 className="mt-3 font-serif text-3xl text-[#101418] sm:text-4xl">A foundation for continuity.</h2>
+            </div>
+            <p className="max-w-xl text-sm leading-7 text-[#5D6461]">ShaelCore&apos;s anchor shareholders support a long-term perspective and the group&apos;s independence.</p>
+          </div>
+          <div className="grid gap-4 lg:grid-cols-3">
+            {shareholders.map((shareholder) => (
+              <article key={shareholder.name} className="flex gap-4 border border-[#D8CDBB] bg-[#F7F4EC] p-6">
+                <span className="mt-1 h-12 w-1 shrink-0 bg-[#B86F43]" />
+                <div>
+                  <p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#8F4E2F]">{shareholder.role}</p>
+                  <h3 className="mt-2 font-serif text-lg text-[#101418]">{shareholder.name}</h3>
+                  <p className="mt-3 text-sm leading-6 text-[#5D6461]">{shareholder.note}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="mt-5 flex flex-wrap items-center justify-between gap-5 bg-[#101418] px-6 py-5 text-white">
+            <div>
+              <p className="text-[0.63rem] uppercase tracking-[0.15em] text-[#F0B968]">SIX Swiss Exchange</p>
+              <p className="mt-1 text-sm">Ticker: <strong className="text-[#F0B968]">VPBN</strong><span className="mx-3 text-white/25">|</span>Rated A– by Standard & Poor&apos;s</p>
+            </div>
+            <p className="text-sm text-white/65">CHF 100K deposit guarantee per depositor</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#E9E1D2] py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8F4E2F]">What we do</p>
+          <h2 className="mt-3 font-serif text-3xl text-[#101418] sm:text-4xl">Services for every next step.</h2>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            {serviceLines.map((service) => (
+              <Link key={service.label} href={service.href} className="group flex items-start justify-between gap-4 border border-[#D8CDBB] bg-white p-6 text-[#101418] no-underline">
+                <div>
+                  <h3 className="font-serif text-xl">{service.label}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#5D6461]">{service.detail}</p>
+                </div>
+                <ArrowUpRight size={18} className="mt-1 shrink-0 text-[#8F4E2F] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="grid gap-10 lg:grid-cols-[.75fr_1.25fr]">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8F4E2F]">Good reasons for ShaelCore</p>
+              <h2 className="mt-3 font-serif text-3xl text-[#101418] sm:text-4xl">A partner for the long term.</h2>
+              <ul className="mt-6 space-y-3">
+                {reasons.map((reason) => (
+                  <li key={reason} className="flex gap-3 text-sm leading-6 text-[#505B5A]"><Shield size={16} className="mt-1 shrink-0 text-[#8F4E2F]" />{reason}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8F4E2F]">Our locations</p>
+              <h2 className="mt-3 font-serif text-3xl text-[#101418] sm:text-4xl">International reach. Local expertise.</h2>
+              <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                {offices.map((office) => (
+                  <article key={office.city} className="border border-[#D8CDBB] p-5">
+                    <div className="flex items-start gap-3">
+                      <MapPin size={16} className="mt-1 shrink-0 text-[#8F4E2F]" />
+                      <div>
+                        <h3 className="font-serif text-lg text-[#101418]">{office.city}</h3>
+                        <p className="text-xs text-[#8F4E2F]">{office.country} · {office.role}</p>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#101418] py-14 text-white sm:py-16">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 px-5 sm:px-8 md:flex-row md:items-center">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#F0B968]">Partnership for progress</p>
+            <h2 className="mt-3 font-serif text-3xl sm:text-4xl">A broader view, built on our roots.</h2>
+          </div>
+          <Link href="/contact" className="inline-flex items-center gap-3 self-start bg-[#E4A45F] px-6 py-3.5 text-sm font-semibold text-[#101418] hover:bg-[#F4C986] md:self-auto">
+            Start a conversation <ArrowRight size={16} />
+          </Link>
         </div>
       </section>
     </>

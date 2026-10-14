@@ -3,16 +3,17 @@ import Link from "next/link";
 import { ArrowRight, ChevronRight, Leaf, Sun, Users, BarChart2, Shield, Globe, CheckCircle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Sustainability – Responsible Investing",
+  title: { absolute: "Sustainability & Responsible Investing | ShaelCore" },
   description:
-    "ShaelCore's comprehensive sustainability approach integrates ESG factors across investment strategies. Sustainable investing with Plus mandates and responsible wealth management.",
+    "Explore how environmental, social, and governance considerations can inform ShaelCore's wealth and investment services.",
+  alternates: { canonical: "/sustainability" },
 };
 
 const pillars = [
   {
     icon: Leaf,
     title: "Environmental",
-    desc: "We integrate climate risk, carbon footprint analysis and natural capital considerations into our investment process. Our Plus mandates specifically weight companies with strong environmental governance.",
+    desc: "Explore how climate, nature, and resource considerations may inform long-term investment discussions.",
   },
   {
     icon: Users,
@@ -28,57 +29,57 @@ const pillars = [
 
 const sustainableProducts = [
   {
-    name: "VP Vida Plus Mandates",
+    name: "Sustainable wealth management",
     category: "Wealth Management",
     href: "/private-banking/investing/wealth-management",
-    desc: "All VP Vida mandates are available as Plus strategies, where sustainability factors play a greater role in investment decisions. Ideal for clients with a strong sustainability preference.",
-    badge: "ESG Enhanced",
+    desc: "Discuss how environmental, social, and governance considerations may be reflected in a wealth-management approach.",
+    badge: "ESG considerations",
   },
   {
     name: "Sustainable Investment Advisory",
     category: "Investment Advisory",
     href: "/private-banking/investing/investment-advisory",
-    desc: "We incorporate ESG screening and sustainability analysis into our investment ideas and portfolio reviews within the VP Auda advisory framework.",
-    badge: "ESG Integrated",
+    desc: "Explore how sustainability-related factors can inform investment ideas, portfolio conversations, and your personal priorities.",
+    badge: "Advisory",
   },
   {
     name: "ESG Fund Solutions",
     category: "Intermediaries",
     href: "/intermediaries/services/custodian-bank",
-    desc: "Through ShaelCore Fund Solutions, we support the structuring and administration of sustainability-focused investment funds in Luxembourg and Liechtenstein.",
+    desc: "Discuss fund structures and the operational considerations involved in sustainability-focused investment strategies.",
     badge: "Fund Solutions",
   },
 ];
 
 const commitments = [
-  "ESG risks and opportunities are an integral part of our investment process across all strategies",
-  "We develop a comprehensive sustainability approach across our entire product landscape",
-  "Our foundations support projects in environment, education, arts and culture",
-  "We provide clients with easy access to sustainable investments through clear product structures",
-  "We report transparently on sustainability integration and outcomes",
-  "We support clients on their own journeys towards sustainable wealth management",
+  "Explore relevant environmental, social, and governance considerations",
+  "Discuss how sustainability preferences may relate to your investment objectives",
+  "Consider long-term risks and opportunities alongside other financial priorities",
+  "Understand the factors and approach used for a particular investment service",
+  "Review your preferences as your circumstances and priorities change",
+  "Coordinate sustainability questions across wealth and investment services",
 ];
 
 const initiatives = [
-  { year: "2024", title: "Enhanced ESG Screening", desc: "Strengthened ESG integration across all investment mandates with upgraded screening methodology." },
-  { year: "2023", title: "Sustainable Product Range Expansion", desc: "Launched enhanced Plus mandate options across all VP Vida and VP Auda mandate types." },
-  { year: "2022", title: "Climate Risk Integration", desc: "Integrated climate scenario analysis into strategic and tactical asset allocation processes." },
-  { year: "2021", title: "Foundation Support Expansion", desc: "Increased support for environmental and educational projects through ShaelCore foundations." },
+  { year: "01", title: "Start with your priorities", desc: "Clarify the sustainability themes that matter to you and how they relate to your broader objectives." },
+  { year: "02", title: "Understand the approach", desc: "Review the available information and factors relevant to the services you are considering." },
+  { year: "03", title: "Consider the trade-offs", desc: "Discuss how sustainability preferences interact with risk, diversification, and investment goals." },
+  { year: "04", title: "Review over time", desc: "Revisit your preferences as your circumstances and views evolve." },
 ];
 
 export default function SustainabilityPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-[#0a1f3c] py-24 relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#c8a96e] to-transparent" />
+      <section className="bg-[#101418] py-24 relative overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#B86F43] to-transparent" />
         <div
           className="absolute inset-0 opacity-10"
           style={{ backgroundImage: "radial-gradient(circle at 30% 60%, rgba(34,197,94,0.4) 0%, transparent 60%)" }}
         />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-2 text-[#c8a96e] text-xs font-sans-vp uppercase tracking-widest mb-5">
+            <div className="flex items-center gap-2 text-[#B86F43] text-xs font-sans-vp uppercase tracking-widest mb-5">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <ChevronRight size={12} />
               <span>Sustainability</span>
@@ -86,8 +87,8 @@ export default function SustainabilityPage() {
             <div className="inline-flex items-center gap-2 px-3 py-1 border border-green-500/40 rounded-full text-green-400 text-xs font-sans-vp tracking-widest uppercase mb-6">
               <Leaf size={11} /> Responsible Investing
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight" style={{ fontFamily: "Georgia, serif" }}>
-              Investing with a<br /><span className="text-[#c8a96e]">Sustainable Purpose</span>
+            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
+              Investing with a<br /><span className="text-[#B86F43]">Sustainable Purpose</span>
             </h1>
             <p className="text-gray-300 font-sans-vp text-lg leading-relaxed mb-4">
               We see it as our mission to support you on your journey towards sustainability and give you the 
@@ -100,7 +101,7 @@ export default function SustainabilityPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#c8a96e] text-[#0a1f3c] font-sans-vp font-semibold text-sm hover:bg-[#d4ba8a] transition-colors rounded-sm group"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#B86F43] text-[#101418] font-sans-vp font-semibold text-sm hover:bg-[#F0B968] transition-colors rounded-sm group"
             >
               Invest Sustainably Now <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
@@ -112,8 +113,8 @@ export default function SustainabilityPage() {
       <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
-            <div className="inline-block w-12 h-0.5 bg-[#c8a96e] mb-4" />
-            <h2 className="text-3xl font-bold text-[#0a1f3c]" style={{ fontFamily: "Georgia, serif" }}>
+            <div className="inline-block w-12 h-0.5 bg-[#B86F43] mb-4" />
+            <h2 className="text-3xl font-bold text-[#101418]" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
               Our ESG Framework
             </h2>
             <p className="text-[#6b7280] font-sans-vp mt-3 max-w-xl mx-auto">
@@ -122,11 +123,11 @@ export default function SustainabilityPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {pillars.map((p) => (
-              <div key={p.title} className="group bg-[#f8f5f0] rounded-xl p-8 hover:bg-[#0a1f3c] transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-white flex items-center justify-center mb-5 group-hover:bg-[#c8a96e]/20 transition-colors">
-                  <p.icon size={22} className="text-[#0a1f3c] group-hover:text-[#c8a96e] transition-colors" />
+              <div key={p.title} className="group bg-[#E9E1D2] rounded-xl p-8 hover:bg-[#101418] transition-all duration-300">
+                <div className="w-12 h-12 rounded-lg bg-white flex items-center justify-center mb-5 group-hover:bg-[#B86F43]/20 transition-colors">
+                  <p.icon size={22} className="text-[#101418] group-hover:text-[#B86F43] transition-colors" />
                 </div>
-                <h3 className="text-[#0a1f3c] group-hover:text-white font-bold text-xl mb-4 transition-colors" style={{ fontFamily: "Georgia, serif" }}>
+                <h3 className="text-[#101418] group-hover:text-white font-bold text-xl mb-4 transition-colors" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
                   {p.title}
                 </h3>
                 <p className="text-[#6b7280] group-hover:text-gray-300 font-sans-vp text-sm leading-relaxed transition-colors">
@@ -139,11 +140,11 @@ export default function SustainabilityPage() {
       </section>
 
       {/* Sustainable products */}
-      <section className="bg-[#f8f5f0] py-20">
+      <section className="bg-[#E9E1D2] py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="mb-12">
-            <div className="inline-block w-12 h-0.5 bg-[#c8a96e] mb-4" />
-            <h2 className="text-3xl font-bold text-[#0a1f3c]" style={{ fontFamily: "Georgia, serif" }}>
+            <div className="inline-block w-12 h-0.5 bg-[#B86F43] mb-4" />
+            <h2 className="text-3xl font-bold text-[#101418]" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
               Sustainable Investment Solutions
             </h2>
             <p className="text-[#6b7280] font-sans-vp mt-2">
@@ -163,9 +164,9 @@ export default function SustainabilityPage() {
                     {p.badge}
                   </span>
                 </div>
-                <h3 className="text-[#0a1f3c] font-bold font-sans-vp text-lg mb-3">{p.name}</h3>
+                <h3 className="text-[#101418] font-bold font-sans-vp text-lg mb-3">{p.name}</h3>
                 <p className="text-[#6b7280] font-sans-vp text-sm leading-relaxed flex-1">{p.desc}</p>
-                <div className="flex items-center gap-1 text-[#c8a96e] text-xs font-sans-vp font-medium mt-5 group-hover:gap-2 transition-all">
+                <div className="flex items-center gap-1 text-[#B86F43] text-xs font-sans-vp font-medium mt-5 group-hover:gap-2 transition-all">
                   Discover <ChevronRight size={12} />
                 </div>
               </Link>
@@ -175,17 +176,17 @@ export default function SustainabilityPage() {
       </section>
 
       {/* Our commitments */}
-      <section className="bg-[#0a1f3c] py-20">
+      <section className="bg-[#101418] py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-16 items-start">
           <div>
-            <div className="inline-block w-12 h-0.5 bg-[#c8a96e] mb-6" />
-            <h2 className="text-3xl font-bold text-white mb-8" style={{ fontFamily: "Georgia, serif" }}>
+            <div className="inline-block w-12 h-0.5 bg-[#B86F43] mb-6" />
+            <h2 className="text-3xl font-bold text-white mb-8" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
               Our Sustainability Commitments
             </h2>
             <ul className="space-y-4">
               {commitments.map((c) => (
                 <li key={c} className="flex items-start gap-3">
-                  <CheckCircle size={16} className="text-[#c8a96e] flex-shrink-0 mt-0.5" />
+                  <CheckCircle size={16} className="text-[#B86F43] flex-shrink-0 mt-0.5" />
                   <span className="text-gray-300 font-sans-vp text-sm leading-relaxed">{c}</span>
                 </li>
               ))}
@@ -193,15 +194,15 @@ export default function SustainabilityPage() {
           </div>
 
           <div>
-            <h3 className="text-[#c8a96e] font-sans-vp text-xs font-semibold uppercase tracking-widest mb-6">
+            <h3 className="text-[#B86F43] font-sans-vp text-xs font-semibold uppercase tracking-widest mb-6">
               Our Journey
             </h3>
             <div className="space-y-5">
               {initiatives.map((init) => (
                 <div key={init.year} className="flex gap-5">
                   <div className="flex flex-col items-center">
-                    <div className="w-10 h-10 rounded-full bg-[#c8a96e]/20 border border-[#c8a96e]/40 flex items-center justify-center flex-shrink-0">
-                      <span className="text-[#c8a96e] text-xs font-bold">{init.year}</span>
+                    <div className="w-10 h-10 rounded-full bg-[#B86F43]/20 border border-[#B86F43]/40 flex items-center justify-center flex-shrink-0">
+                      <span className="text-[#B86F43] text-xs font-bold">{init.year}</span>
                     </div>
                     <div className="w-px flex-1 bg-white/10 mt-2" />
                   </div>
@@ -216,17 +217,14 @@ export default function SustainabilityPage() {
         </div>
       </section>
 
-      {/* Foundation support */}
       <section className="bg-white py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-          <div className="inline-block w-12 h-0.5 bg-[#c8a96e] mb-6" />
-          <h2 className="text-3xl font-bold text-[#0a1f3c] mb-5" style={{ fontFamily: "Georgia, serif" }}>
-            Supporting Society Through Our Foundations
+          <div className="inline-block w-12 h-0.5 bg-[#B86F43] mb-6" />
+          <h2 className="text-3xl font-bold text-[#101418] mb-5" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
+            Considering Sustainability in Context
           </h2>
           <p className="text-[#4a4a6a] font-sans-vp leading-relaxed mb-10 max-w-2xl mx-auto">
-            ShaelCore uses its foundations to support projects, institutions and persons with outstanding contributions
-            in the fields of environment, arts, education, science and culture. This reflects the enduring values 
-            of our founder Guido Feger, who established the first ShaelCore foundation in 1954.
+          Sustainability can mean different things to different people. We help bring your priorities into the conversation and consider how they may relate to investment choices, risk, and long-term plans.
           </p>
           <div className="grid sm:grid-cols-4 gap-4">
             {[
@@ -235,11 +233,11 @@ export default function SustainabilityPage() {
               { icon: Globe, label: "Education" },
               { icon: BarChart2, label: "Science" },
             ].map((s) => (
-              <div key={s.label} className="bg-[#f8f5f0] rounded-xl p-6 flex flex-col items-center">
+              <div key={s.label} className="bg-[#E9E1D2] rounded-xl p-6 flex flex-col items-center">
                 <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center mb-3 shadow-sm">
-                  <s.icon size={18} className="text-[#c8a96e]" />
+                  <s.icon size={18} className="text-[#B86F43]" />
                 </div>
-                <span className="text-[#0a1f3c] font-sans-vp text-sm font-semibold">{s.label}</span>
+                <span className="text-[#101418] font-sans-vp text-sm font-semibold">{s.label}</span>
               </div>
             ))}
           </div>
@@ -247,9 +245,9 @@ export default function SustainabilityPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#f8f5f0] py-16">
+      <section className="bg-[#E9E1D2] py-16">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-2xl font-bold text-[#0a1f3c] mb-4" style={{ fontFamily: "Georgia, serif" }}>
+          <h2 className="text-2xl font-bold text-[#101418] mb-4" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
             Ready to invest sustainably?
           </h2>
           <p className="text-[#4a4a6a] font-sans-vp mb-8">
@@ -257,11 +255,11 @@ export default function SustainabilityPage() {
             and personal values.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-3 bg-[#0a1f3c] text-white font-sans-vp font-semibold text-sm hover:bg-[#c8a96e] hover:text-[#0a1f3c] transition-colors rounded-sm group">
+            <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-3 bg-[#101418] text-white font-sans-vp font-semibold text-sm hover:bg-[#B86F43] hover:text-[#101418] transition-colors rounded-sm group">
               Arrange an Appointment <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </Link>
-            <Link href="/private-banking/investing/wealth-management" className="inline-flex items-center gap-2 px-7 py-3 border border-[#0a1f3c] text-[#0a1f3c] font-sans-vp font-medium text-sm hover:bg-[#0a1f3c] hover:text-white transition-colors rounded-sm">
-              VP Vida Plus Mandates
+            <Link href="/private-banking/investing/wealth-management" className="inline-flex items-center gap-2 px-7 py-3 border border-[#101418] text-[#101418] font-sans-vp font-medium text-sm hover:bg-[#101418] hover:text-white transition-colors rounded-sm">
+              Wealth Management
             </Link>
           </div>
         </div>

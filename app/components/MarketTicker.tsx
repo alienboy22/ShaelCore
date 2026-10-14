@@ -43,7 +43,7 @@ export default function MarketTicker() {
       sx={{
         position: "fixed", top: { xs: 60, md: 102 }, left: 0, right: 0, zIndex: 1199,
         height: 32, display: "flex", alignItems: "center", overflow: "hidden",
-        bgcolor: "#102a45", color: "#fff", borderTop: "1px solid rgba(184,151,90,0.35)",
+        bgcolor: "#101418", color: "#fff", borderTop: "1px solid rgba(240,185,104,0.35)",
       }}
     >
       <Box sx={{ width: "100%", display: "flex", alignItems: "center", overflow: "hidden" }}>

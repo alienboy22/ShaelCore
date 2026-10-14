@@ -2,297 +2,112 @@
 
 import Link from "next/link";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import PhoneIcon from "@mui/icons-material/Phone";
-import EmailIcon from "@mui/icons-material/Email";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-const cols = {
-  "Private Banking": [
-    { label: "Private Banking",     href: "/private-banking/investing/private-banking" },
-    { label: "Wealth Management",   href: "/private-banking/investing/wealth-management" },
-    { label: "Investment Advisory", href: "/private-banking/investing/investment-advisory" },
-    { label: "Wealth Planning",     href: "/private-banking/investing/wealth-planning" },
-    { label: "Financing",           href: "/private-banking/financing" },
-  ],
-  "Intermediaries": [
-    { label: "Custodian Bank",  href: "/intermediaries/services/custodian-bank" },
-    { label: "Fund Solutions",  href: "/intermediaries/services/custodian-bank" },
-    { label: "Execution Only",  href: "/intermediaries/services/custodian-bank" },
-  ],
-  "About Us": [
-    { label: "Company Portrait",   href: "/about-us/company-portrait" },
-    { label: "Sustainability",     href: "/sustainability" },
-    { label: "Research & Our View",href: "/research" },
-    { label: "Locations",          href: "/contact" },
-  ],
-  "Legal": [
-    { label: "Contact",         href: "/contact" },
-    { label: "Legal Notice",    href: "/contact" },
-    { label: "Privacy Policy",  href: "/contact" },
-    { label: "Cookie Settings", href: "/contact" },
-    { label: "Imprint",         href: "/contact" },
-  ],
-};
-
-const offices = [
-  { city: "Vaduz",      country: "Liechtenstein" },
-  { city: "Zurich",     country: "Switzerland" },
-  { city: "Luxembourg", country: "Luxembourg" },
-  { city: "Singapore",  country: "Singapore" },
-  { city: "Road Town",  country: "BVI" },
+const columns = [
+  {
+    heading: "Wealth & advisory",
+    links: [
+      { label: "Private banking", href: "/private-banking/investing/private-banking" },
+      { label: "Wealth management", href: "/private-banking/investing/wealth-management" },
+      { label: "Investment advisory", href: "/private-banking/investing/investment-advisory" },
+      { label: "Wealth planning", href: "/private-banking/investing/wealth-planning" },
+      { label: "Financing", href: "/private-banking/financing" },
+    ],
+  },
+  {
+    heading: "Institutional services",
+    links: [
+      { label: "Custodian bank", href: "/intermediaries/services/custodian-bank" },
+      { label: "Fund solutions", href: "/intermediaries/services/custodian-bank#fund-solutions" },
+      { label: "Sustainable investing", href: "/sustainability" },
+      { label: "Research & perspectives", href: "/research" },
+    ],
+  },
+  {
+    heading: "More possibilities",
+    links: [
+      { label: "Travel & tours", href: "/travel-tours" },
+      { label: "Real estate", href: "/real-estate" },
+      { label: "About ShaelCore", href: "/about-us/company-portrait" },
+      { label: "Make an enquiry", href: "/contact" },
+    ],
+  },
 ];
 
 export default function Footer() {
   return (
-    <Box component="footer" sx={{ bgcolor: "#0d2137", color: "#fff" }}>
-      {/* ── CTA Banner ── */}
-      <Box sx={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-        <Box
-          sx={{
-            maxWidth: 1280,
-            mx: "auto",
-            px: { xs: 2, sm: 4 },
-            py: { xs: 4, md: 5 },
-            display: "flex",
-            flexDirection: { xs: "column", md: "row" },
-            alignItems: { xs: "flex-start", md: "center" },
-            justifyContent: "space-between",
-            gap: 3,
-          }}
-        >
+    <Box component="footer" sx={{ bgcolor: "#101418", color: "#fff" }}>
+      <Box sx={{ bgcolor: "#E9E1D2", color: "#101418" }}>
+        <Box sx={{ maxWidth: 1320, mx: "auto", px: { xs: 2.5, md: 4 }, py: { xs: 4, md: 5 }, display: "flex", alignItems: { xs: "flex-start", md: "center" }, justifyContent: "space-between", gap: 3, flexDirection: { xs: "column", md: "row" } }}>
           <Box>
-            <Typography
-              variant="h5"
-              sx={{ fontFamily: "Georgia, serif", color: "#fff", fontWeight: 600, mb: 0.6 }}
-            >
-              Start your journey with Shaelcore
+            <Typography sx={{ fontFamily: "Space Grotesk,sans-serif", fontSize: { xs: "1.4rem", md: "1.75rem" }, lineHeight: 1.2, mb: 0.7 }}>
+              Big plans start with a simple conversation.
             </Typography>
-            <Typography sx={{ color: "rgba(255,255,255,0.55)", fontSize: "0.88rem" }}>
-              Our advisors are here to help you achieve your financial goals.
+            <Typography sx={{ color: "#5D6461", fontSize: "0.9rem" }}>
+              Tell us what you have in mind. We’ll help you find the right place to begin.
             </Typography>
           </Box>
-          <Button
-            component={Link}
-            href="/contact"
-            variant="contained"
-            color="secondary"
-            endIcon={<ArrowForwardIcon />}
-            sx={{ whiteSpace: "nowrap", flexShrink: 0, py: 1.3, px: 3 }}
-          >
-            Arrange an Appointment
+          <Button component={Link} href="/contact" variant="contained" color="primary" endIcon={<ArrowForwardIcon />} sx={{ py: 1.25, px: 2.5, flexShrink: 0 }}>
+            Let’s talk
           </Button>
         </Box>
       </Box>
 
-      {/* ── Main grid ── */}
-      <Box sx={{ maxWidth: 1280, mx: "auto", px: { xs: 2, sm: 4 }, pt: 7, pb: 5 }}>
-        <Grid container spacing={5}>
-          {/* Brand column */}
-          <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
-            <Box
-              component={Link}
-              href="/"
-              sx={{ display: "inline-flex", alignItems: "center", gap: 1.4, textDecoration: "none", mb: 2.5 }}
-            >
-              <Box
-                sx={{
-                  width: 38, height: 38,
-                  bgcolor: "#b8975a",
-                  borderRadius: "2px",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                }}
-              >
-                <Typography sx={{ color: "#0d2137", fontWeight: 800, fontSize: "0.82rem" }}>SC</Typography>
-              </Box>
+      <Box sx={{ maxWidth: 1320, mx: "auto", px: { xs: 2.5, md: 4 }, pt: { xs: 6, md: 8 }, pb: 5 }}>
+        <Grid container spacing={{ xs: 4, md: 5 }}>
+          <Grid size={{ xs: 12, md: 4 }}>
+            <Box component={Link} href="/" sx={{ display: "inline-flex", alignItems: "center", gap: 1.3, mb: 2.2, textDecoration: "none", color: "#fff" }}>
+              <Box sx={{ width: 40, height: 40, border: "1px solid #B86F43", display: "grid", placeItems: "center", color: "#F0B968", fontFamily: "Space Grotesk,sans-serif", fontSize: "1.45rem" }}>S</Box>
               <Box>
-                <Typography sx={{ fontFamily: "Georgia, serif", color: "#fff", fontWeight: 700, fontSize: "1.05rem", lineHeight: 1.1 }}>
-                  Shaelcore
-                </Typography>
-                <Typography sx={{ color: "#b8975a", fontSize: "0.58rem", letterSpacing: "0.12em", textTransform: "uppercase", mt: 0.2 }}>
-                  Partnership for Progress
-                </Typography>
+                <Typography sx={{ fontFamily: "Space Grotesk,sans-serif", fontWeight: 700, letterSpacing: "0.18em", fontSize: "1.08rem", lineHeight: 1.15 }}>SHAELCORE</Typography>
+                <Typography sx={{ color: "#F0B968", fontSize: "0.54rem", letterSpacing: "0.18em" }}>CAPITAL HOLDINGS</Typography>
               </Box>
             </Box>
-
-            <Typography sx={{ color: "rgba(255,255,255,0.45)", fontSize: "0.8rem", lineHeight: 1.75, mb: 3, maxWidth: 240 }}>
-              Founded 1956 in Vaduz, Liechtenstein. One of the three system‑relevant banks in Liechtenstein.
+            <Typography sx={{ color: "rgba(255,255,255,0.62)", maxWidth: 290, fontSize: "0.88rem", lineHeight: 1.8 }}>
+              A considered portfolio of wealth and advisory services, travel experiences, and real estate.
             </Typography>
-
-            {/* Social */}
-            <Box sx={{ display: "flex", gap: 1 }}>
-              {[
-                {
-                  label: "LinkedIn",
-                  href: "https://linkedin.com/company/shaelcore",
-                  svg: (
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7H10V9h4v1.5A5 5 0 0 1 16 8zM2 9h4v12H2zM4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/>
-                    </svg>
-                  ),
-                },
-                {
-                  label: "X",
-                  href: "https://x.com/shaelcore",
-                  svg: (
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                  ),
-                },
-              ].map((s) => (
-                <IconButton
-                  key={s.label}
-                  component="a"
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  size="small"
-                  sx={{
-                    width: 32, height: 32,
-                    border: "1px solid rgba(255,255,255,0.15)",
-                    color: "rgba(255,255,255,0.5)",
-                    borderRadius: "50%",
-                    "&:hover": { borderColor: "#b8975a", color: "#b8975a" },
-                    transition: "all 0.2s",
-                  }}
-                >
-                  {s.svg}
-                </IconButton>
-              ))}
-            </Box>
           </Grid>
-
-          {/* Link columns */}
-          {Object.entries(cols).map(([cat, links]) => (
-            <Grid key={cat} size={{ xs: 6, sm: 3, lg: 2 }}>
-              <Typography
-                variant="overline"
-                sx={{ color: "#b8975a", fontSize: "0.65rem", letterSpacing: "0.1em", mb: 2, display: "block" }}
-              >
-                {cat}
+          {columns.map((column) => (
+            <Grid key={column.heading} size={{ xs: 6, md: 2.5 }}>
+              <Typography sx={{ color: "#F0B968", fontSize: "0.66rem", letterSpacing: "0.13em", textTransform: "uppercase", fontWeight: 700, mb: 2 }}>
+                {column.heading}
               </Typography>
-              <Box component="ul" sx={{ listStyle: "none", m: 0, p: 0, display: "flex", flexDirection: "column", gap: 1.2 }}>
-                {links.map((l) => (
-                  <Box component="li" key={l.label}>
-                    <Box
-                      component={Link}
-                      href={l.href}
-                      sx={{
-                        color: "rgba(255,255,255,0.5)",
-                        fontSize: "0.82rem",
-                        textDecoration: "none",
-                        "&:hover": { color: "#fff" },
-                        transition: "color 0.2s",
-                      }}
-                    >
-                      {l.label}
-                    </Box>
+              <Box sx={{ display: "grid", gap: 1.25 }}>
+                {column.links.map((link) => (
+                  <Box key={link.label} component={Link} href={link.href} sx={{ color: "rgba(255,255,255,0.66)", fontSize: "0.82rem", textDecoration: "none", "&:hover": { color: "#fff" } }}>
+                    {link.label}
                   </Box>
                 ))}
               </Box>
             </Grid>
           ))}
+          <Grid size={{ xs: 12, md: 3 }}>
+            <Typography sx={{ color: "#F0B968", fontSize: "0.66rem", letterSpacing: "0.13em", textTransform: "uppercase", fontWeight: 700, mb: 2 }}>
+              Connect
+            </Typography>
+            <Box component={Link} href="mailto:info.zurich@shaelcore.com" sx={{ color: "rgba(255,255,255,0.72)", fontSize: "0.84rem", textDecoration: "none", "&:hover": { color: "#fff" } }}>
+              info.zurich@shaelcore.com
+            </Box>
+            <Typography sx={{ color: "rgba(255,255,255,0.54)", fontSize: "0.82rem", lineHeight: 1.7, mt: 2.1 }}>
+              Vaduz · Zurich · Luxembourg<br />Singapore · British Virgin Islands
+            </Typography>
+            <Box component={Link} href="/auth/login" sx={{ color: "#F0B968", fontSize: "0.82rem", textDecoration: "none", display: "inline-block", mt: 1.8 }}>
+              Client login <ArrowForwardIcon sx={{ verticalAlign: "middle", fontSize: 15, ml: 0.4 }} />
+            </Box>
+          </Grid>
         </Grid>
 
-        {/* ── Locations strip ── */}
-        <Box sx={{ mt: 6, pt: 4, borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-          <Typography
-            variant="overline"
-            sx={{ color: "#b8975a", fontSize: "0.65rem", letterSpacing: "0.1em", mb: 2.5, display: "block" }}
-          >
-            Our Locations
+        <Box sx={{ mt: 6, pt: 2.5, borderTop: "1px solid rgba(255,255,255,0.16)", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 1.5 }}>
+          <Typography sx={{ color: "rgba(255,255,255,0.45)", fontSize: "0.73rem" }}>
+            © {new Date().getFullYear()} ShaelCore Ltd. All rights reserved. Regulated by FMA Liechtenstein.
           </Typography>
-          <Grid container spacing={2}>
-            {offices.map((o) => (
-              <Grid key={o.city} size={{ xs: 6, sm: 4, md: "auto" }}>
-                <Box sx={{ display: "flex", alignItems: "flex-start", gap: 0.8 }}>
-                  <LocationOnIcon sx={{ fontSize: 13, color: "#b8975a", mt: 0.3, flexShrink: 0 }} />
-                  <Box>
-                    <Typography sx={{ color: "#fff", fontSize: "0.82rem", fontWeight: 500, lineHeight: 1.2 }}>
-                      {o.city}
-                    </Typography>
-                    <Typography sx={{ color: "rgba(255,255,255,0.35)", fontSize: "0.72rem" }}>
-                      {o.country}
-                    </Typography>
-                  </Box>
-                </Box>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-
-        {/* ── Contact strip ── */}
-        <Box sx={{ mt: 3.5, display: "flex", flexWrap: "wrap", gap: 3.5 }}>
-          <Box
-            component="a"
-            href="tel:+41432126000"
-            sx={{
-              display: "flex", alignItems: "center", gap: 0.8,
-              color: "rgba(255,255,255,0.45)", fontSize: "0.82rem",
-              textDecoration: "none",
-              "&:hover": { color: "#b8975a" },
-              transition: "color 0.2s",
-            }}
-          >
-            <PhoneIcon sx={{ fontSize: 14 }} /> +41 43 212 60 00
-          </Box>
-          <Box
-            component="a"
-            href="mailto:info.zurich@shaelcore.com"
-            sx={{
-              display: "flex", alignItems: "center", gap: 0.8,
-              color: "rgba(255,255,255,0.45)", fontSize: "0.82rem",
-              textDecoration: "none",
-              "&:hover": { color: "#b8975a" },
-              transition: "color 0.2s",
-            }}
-          >
-            <EmailIcon sx={{ fontSize: 14 }} /> info.zurich@shaelcore.com
-          </Box>
-        </Box>
-      </Box>
-
-      {/* ── Bottom bar ── */}
-      <Divider sx={{ borderColor: "rgba(255,255,255,0.07)" }} />
-      <Box
-        sx={{
-          maxWidth: 1280,
-          mx: "auto",
-          px: { xs: 2, sm: 4 },
-          py: 2.5,
-          display: "flex",
-          flexDirection: { xs: "column", sm: "row" },
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: 1.5,
-        }}
-      >
-        <Typography sx={{ color: "rgba(255,255,255,0.28)", fontSize: "0.74rem" }}>
-          © {new Date().getFullYear()} Shaelcore Ltd. All rights reserved. Regulated by FMA Liechtenstein.
-        </Typography>
-        <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2.5 }}>
-          {["Legal Notice", "Privacy Policy", "Cookie Settings", "Imprint"].map((t) => (
-            <Box
-              key={t}
-              component={Link}
-              href="/contact"
-              sx={{
-                color: "rgba(255,255,255,0.28)", fontSize: "0.74rem",
-                textDecoration: "none",
-                "&:hover": { color: "rgba(255,255,255,0.6)" },
-                transition: "color 0.2s",
-              }}
-            >
-              {t}
-            </Box>
-          ))}
+          <Typography sx={{ color: "rgba(255,255,255,0.45)", fontSize: "0.73rem" }}>
+            Wealth · Travel · Real estate
+          </Typography>
         </Box>
       </Box>
     </Box>

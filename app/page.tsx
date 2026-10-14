@@ -1,705 +1,237 @@
-"use client";
-
 import Link from "next/link";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Chip from "@mui/material/Chip";
-import Divider from "@mui/material/Divider";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import LanguageIcon from "@mui/icons-material/Language";
-import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
-import SecurityIcon from "@mui/icons-material/Security";
-import PeopleIcon from "@mui/icons-material/People";
-import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
-import StarBorderIcon from "@mui/icons-material/StarBorder";
-import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import { useLocale } from "@/app/locale/LocaleProvider";
+import type { Metadata } from "next";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Building2,
+  Home,
+  Landmark,
+  Plane,
+  ShieldCheck,
+  Sparkles,
+  TrendingUp,
+} from "lucide-react";
 
-/* ─── colour palette shortcuts ─── */
-const NAVY  = "#0d2137";
-const GOLD  = "#b8975a";
-const CREAM = "#f5f2ed";
+export const metadata: Metadata = {
+  title: { absolute: "Wealth, Travel & Real Estate | ShaelCore Capital Holdings" },
+  description:
+    "Discover ShaelCore's categorized services: private banking, wealth management, investment advisory, institutional solutions, travel and tours, and real estate.",
+  alternates: { canonical: "/" },
+};
 
-/* ─── data ─── */
-const pillars = [
+const serviceLines = [
   {
-    icon: LanguageIcon,
-    title: "International Reach – Local Roots",
-    body:  "Five strategically selected locations in leading financial centres, combining an international presence with first-class local expertise.",
-    href:  "/about-us/company-portrait",
+    number: "01",
+    label: "Wealth · Advisory · Institutional",
+    title: "Plan with purpose.",
+    body: "A broad range of financial services, from private banking and investment advice to planning, financing, and institutional solutions.",
+    icon: Landmark,
+    className: "bg-[#101418] text-white",
+    links: [
+      { label: "Private banking", href: "/private-banking/investing/private-banking" },
+      { label: "Wealth management", href: "/private-banking/investing/wealth-management" },
+      { label: "Investment advisory", href: "/private-banking/investing/investment-advisory" },
+      { label: "Wealth planning", href: "/private-banking/investing/wealth-planning" },
+      { label: "Financing", href: "/private-banking/financing" },
+      { label: "Custodian bank & fund solutions", href: "/intermediaries/services/custodian-bank" },
+      { label: "Sustainable investing", href: "/sustainability" },
+      { label: "Research & perspectives", href: "/research" },
+    ],
+    href: "/private-banking/investing/private-banking",
   },
   {
-    icon: TrendingUpIcon,
-    title: "Financial Solutions with a Long-Term Perspective",
-    body:  "Tailored financial solutions built around your goals. Our proactive approach and in-depth experience ensure sustainable success across generations.",
-    href:  "/private-banking/investing/private-banking",
+    number: "02",
+    label: "Travel · Tours · Experiences",
+    title: "Go beyond the everyday.",
+    body: "Thoughtfully planned holidays, tours, and business journeys, shaped around your interests and the way you want to travel.",
+    icon: Plane,
+    className: "bg-[#e9e3d5] text-[#101418]",
+    links: [
+      { label: "Travel & tours", href: "/travel-tours" },
+      { label: "Business travel", href: "/travel-tours#business-travel" },
+      { label: "Curated journeys", href: "/travel-tours#curated-journeys" },
+    ],
+    href: "/travel-tours",
   },
   {
-    icon: EmojiEventsIcon,
-    title: "Excellence That Sets Standards",
-    body:  "Numerous commendations confirm the consistent quality of our advice, products and services. We set standards – today and in the future.",
-    href:  "/about-us/company-portrait",
+    number: "03",
+    label: "Property · Places · Possibility",
+    title: "Find your next chapter.",
+    body: "Explore residential homes, commercial spaces, and property opportunities with your priorities in focus.",
+    icon: Home,
+    className: "bg-[#E9E1D2] text-[#101418]",
+    links: [
+      { label: "Residential property", href: "/real-estate#residential" },
+      { label: "Commercial property", href: "/real-estate#commercial" },
+      { label: "Property advisory", href: "/real-estate#advisory" },
+    ],
+    href: "/real-estate",
   },
 ];
 
-const stats = [
-  { value: "CHF 53.7B", label: "Assets Under Management",    sub: "As of 31 December 2025" },
-  { value: "994",       label: "Committed Employees",        sub: "Across 5 global offices" },
-  { value: "70+",       label: "Years of Excellence",        sub: "Founded 4 April 1956" },
-  { value: "A–",        label: "S&P Credit Rating",          sub: "Strong financial foundation" },
-];
-
-const services = [
-  {
-    icon: TrendingUpIcon,
-    title: "Wealth Management",
-    body:  "Leave investment decisions to our experts. Benefit from actively managed, broadly diversified portfolios aligned with your objectives.",
-    href:  "/private-banking/investing/wealth-management",
-  },
-  {
-    icon: StarBorderIcon,
-    title: "Investment Advisory",
-    body:  "You retain control. We contribute market views, investment ideas, and continuous portfolio monitoring – as much support as you choose.",
-    href:  "/private-banking/investing/investment-advisory",
-  },
-  {
-    icon: SecurityIcon,
-    title: "Wealth Planning",
-    body:  "Retirement, succession, international asset structures – we bring all financial considerations together into a tailored long-term plan.",
-    href:  "/private-banking/investing/wealth-planning",
-  },
-  {
-    icon: PeopleIcon,
-    title: "Intermediary Services",
-    body:  "Comprehensive custodian bank services for asset managers, family offices and fund structures across Luxembourg and Liechtenstein.",
-    href:  "/intermediaries/services/custodian-bank",
-  },
-];
-
-const locations = [
-  { city: "Vaduz",      country: "Liechtenstein", desc: "Headquarters" },
-  { city: "Zurich",     country: "Switzerland",   desc: "Swiss hub" },
-  { city: "Luxembourg", country: "Luxembourg",    desc: "Fund solutions" },
-  { city: "Singapore",  country: "Singapore",     desc: "Asia-Pacific" },
-  { city: "Road Town",  country: "BVI",           desc: "Offshore expertise" },
-];
-
-const reasons = [
-  "Tailor-made asset management and wealth planning",
-  "Comprehensive, independent investment consulting",
-  "High-quality service – understanding complex requirements",
-  "Trust, transparency and reliability",
-  "Protection of privacy at every step",
+const principles = [
+  { icon: ShieldCheck, title: "Considered decisions", text: "Thoughtful guidance begins with understanding the bigger picture." },
+  { icon: Sparkles, title: "A personal approach", text: "We start with your goals, then connect you with the right expertise." },
+  { icon: TrendingUp, title: "Room to evolve", text: "Our service areas can meet different needs as your plans change." },
 ];
 
 export default function HomePage() {
-  const { location } = useLocale();
-  const localMarket = location ? `${location.city}, ${location.country}` : null;
-
   return (
     <>
-      {/* ═══════════════════════════════════════════
-          HERO
-      ═══════════════════════════════════════════ */}
-      <Box
-        sx={{
-          position: "relative",
-          minHeight: { xs: "88vh", md: "90vh" },
-          bgcolor: NAVY,
-          display: "flex",
-          alignItems: "center",
-          overflow: "hidden",
-        }}
-      >
-        {/* subtle grid texture */}
-        <Box
-          sx={{
-            position: "absolute", inset: 0,
-            backgroundImage: `linear-gradient(rgba(184,151,90,0.07) 1px,transparent 1px),
-                              linear-gradient(90deg,rgba(184,151,90,0.07) 1px,transparent 1px)`,
-            backgroundSize: "56px 56px",
-            pointerEvents: "none",
-          }}
-        />
-        {/* radial glow */}
-        <Box
-          sx={{
-            position: "absolute", inset: 0,
-            background: "radial-gradient(ellipse 70% 60% at 70% 50%, rgba(184,151,90,0.08) 0%, transparent 70%)",
-            pointerEvents: "none",
-          }}
-        />
-        {/* top gold rule */}
-        <Box sx={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px",
-          background: `linear-gradient(90deg,transparent,${GOLD},transparent)` }} />
+      <section className="relative isolate overflow-hidden bg-[#101418] text-white">
+        <div className="pointer-events-none absolute inset-0 -z-10 afro-metal-pattern" />
+        <div className="mx-auto grid min-h-[650px] max-w-[1320px] items-center gap-12 px-5 py-16 sm:px-8 md:py-20 lg:grid-cols-[1fr_.9fr] lg:gap-16">
+          <div className="max-w-2xl">
+            <div className="mb-7 inline-flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[#F0B968]">
+              <span className="h-px w-8 bg-[#B86F43]" /> ShaelCore Capital Holdings
+            </div>
+            <h1 className="font-serif text-[clamp(2.8rem,6vw,5.6rem)] leading-[1.03] tracking-[-0.035em]">
+              Your future.<br />
+              Your world.<br />
+              <span className="italic text-[#F0B968]">More possibilities.</span>
+            </h1>
+            <p className="mt-7 max-w-xl text-base leading-8 text-white/70 sm:text-lg">
+              Build with purpose. Explore with curiosity. Find a place that feels like yours. ShaelCore brings wealth, travel, and real estate together under one considered approach.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <Link href="#services" className="group inline-flex items-center gap-3 bg-[#B86F43] px-6 py-3.5 text-sm font-semibold text-[#101418] transition hover:bg-[#F0B968]">
+                Discover ShaelCore <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link href="/contact" className="inline-flex items-center border border-white/30 px-6 py-3.5 text-sm font-semibold text-white transition hover:border-[#F0B968] hover:text-[#F0B968]">
+                Start a conversation
+              </Link>
+            </div>
+            <div className="mt-12 flex flex-wrap gap-x-7 gap-y-3 border-t border-white/15 pt-5 text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-white/55">
+              <span>Wealth & advisory</span><span>Travel & tours</span><span>Real estate</span>
+            </div>
+          </div>
 
-        <Box sx={{ position: "relative", maxWidth: 1280, mx: "auto", px: { xs: 2.5, sm: 5 }, width: "100%", py: 10 }}>
-          <Grid container spacing={6} sx={{ alignItems: "center" }}>
-            {/* Left copy */}
-            <Grid size={{ xs: 12, lg: 6 }}>
-              <Chip
-                label="Switzerland · Liechtenstein · Since 1956"
-                size="small"
-                sx={{
-                  mb: 3, bgcolor: "rgba(184,151,90,0.12)",
-                  color: GOLD, fontWeight: 600,
-                  fontSize: "0.68rem", letterSpacing: "0.08em",
-                  border: `1px solid rgba(184,151,90,0.3)`,
-                  borderRadius: "20px",
-                }}
-              />
+          <div className="relative mx-auto aspect-[.94] w-full max-w-[540px]">
+            <div className="absolute inset-[7%] rounded-full border border-[#F0B968]/30" />
+            <div className="absolute inset-[17%] rounded-full border border-white/10" />
+            <div className="absolute right-[7%] top-[8%] h-20 w-20 rounded-full bg-[#B86F43]/20 blur-2xl" />
+            <div className="absolute inset-x-[10%] top-[12%] flex items-center justify-between border-b border-white/20 pb-3 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/60">
+              <span>The ShaelCore collection</span><span>01—03</span>
+            </div>
+            <div className="absolute inset-x-[8%] top-[25%] grid grid-cols-2 gap-3">
+              <div className="col-span-2 flex min-h-[158px] items-end justify-between overflow-hidden bg-[#E4A45F] p-5 text-[#101418] sm:min-h-[180px]">
+                <div className="relative z-10">
+                  <span className="text-xs tracking-[0.15em]">01 / WEALTH & ADVISORY</span>
+                  <p className="mt-3 font-serif text-2xl sm:text-3xl">Plan with purpose.</p>
+                </div>
+                <Landmark size={38} strokeWidth={1} className="mb-1 opacity-70" />
+              </div>
+              <div className="flex min-h-[142px] flex-col justify-between bg-[#E9E1D2] p-4 text-[#101418] sm:p-5">
+                <Plane size={23} strokeWidth={1.2} />
+                <div><span className="text-[0.6rem] tracking-[0.14em]">02 / TRAVEL</span><p className="mt-1 font-serif text-xl">Go further.</p></div>
+              </div>
+              <div className="flex min-h-[142px] flex-col justify-between border border-white/20 bg-[#1D282B] p-4 sm:p-5">
+                <Building2 size={23} strokeWidth={1.2} className="text-[#F0B968]" />
+                <div><span className="text-[0.6rem] tracking-[0.14em] text-white/60">03 / REAL ESTATE</span><p className="mt-1 font-serif text-xl">Find your place.</p></div>
+              </div>
+            </div>
+            <div className="absolute bottom-[7%] left-[8%] flex items-center gap-3 text-xs text-white/50">
+              <span className="h-px w-9 bg-[#B86F43]" /> A broader view of what&apos;s possible
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <Typography
-                variant="h1"
-                className="fade-up"
-                sx={{
-                  fontSize: { xs: "2.4rem", sm: "3.2rem", md: "3.8rem" },
-                  color: "#fff",
-                  fontWeight: 700,
-                  lineHeight: 1.12,
-                  mb: 3,
-                  "& span": { color: GOLD },
-                }}
-              >
-                Wealth Management<br />
-                <span>from Liechtenstein</span>
-              </Typography>
+      <section className="bg-[#F7F4EC] py-16 sm:py-20">
+        <div className="mx-auto max-w-[1320px] px-5 sm:px-8">
+          <p className="text-center text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[#8F4E2F]">One vision. A world of opportunity.</p>
+          <div className="mx-auto mt-4 max-w-3xl text-center">
+            <h2 className="font-serif text-3xl leading-tight text-[#101418] sm:text-4xl md:text-5xl">Life has many chapters.<br />Make each one count.</h2>
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[#5D6461] sm:text-base">
+              From your financial future to your next journey and the spaces you choose, ShaelCore brings your ambitions into focus. Explore our service areas, each with a different way to help you move forward.
+            </p>
+          </div>
+        </div>
+      </section>
 
-              {localMarket && (
-                <Typography
-                  className="fade-up"
-                  sx={{ color: "rgba(255,255,255,0.58)", fontSize: "0.76rem", letterSpacing: "0.04em", mb: 2.5 }}
-                >
-                  Regional insight for {localMarket}
-                </Typography>
-              )}
+      <section id="services" className="scroll-mt-24 bg-[#E9E1D2] py-16 sm:py-20">
+        <div className="mx-auto max-w-[1320px] px-5 sm:px-8">
+          <div className="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[#8F4E2F]">The ShaelCore collection</p>
+              <h2 className="mt-3 font-serif text-3xl text-[#101418] sm:text-4xl">Where would you like to begin?</h2>
+            </div>
+            <Link href="/about-us/company-portrait" className="inline-flex items-center gap-2 text-sm font-semibold text-[#303A3B] hover:text-[#8F4E2F]">
+              Discover our approach <ArrowRight size={15} />
+            </Link>
+          </div>
 
-              <Typography
-                className="fade-up-d1"
-                sx={{ color: "rgba(255,255,255,0.72)", fontSize: { xs: "1rem", md: "1.1rem" }, lineHeight: 1.75, mb: 4, maxWidth: 520 }}
-              >
-                Your goals are our shared goals. We support you holistically and over the long term –
-                as a strong, reliable partner combining stability, personal advice, and innovative
-                financial solutions.
-              </Typography>
-
-              <Box className="fade-up-d2" sx={{ display: "flex", flexWrap: "wrap", gap: 2, mb: 5 }}>
-                <Button
-                  component={Link}
-                  href="/contact"
-                  variant="contained"
-                  color="secondary"
-                  endIcon={<ArrowForwardIcon />}
-                  sx={{ py: 1.4, px: 3.5, fontSize: "0.9rem" }}
-                >
-                  Arrange an Appointment
-                </Button>
-                <Button
-                  component={Link}
-                  href="/private-banking/investing/private-banking"
-                  variant="outlined"
-                  sx={{
-                    py: 1.4, px: 3.5, fontSize: "0.9rem",
-                    borderColor: "rgba(255,255,255,0.25)",
-                    color: "#fff",
-                    "&:hover": { borderColor: GOLD, color: GOLD, bgcolor: "transparent" },
-                  }}
-                >
-                  Explore Private Banking
-                </Button>
-              </Box>
-
-              {/* mini-stats */}
-              <Box
-                className="fade-up-d3"
-                sx={{
-                  display: "flex", flexWrap: "wrap", gap: 4,
-                  pt: 4, borderTop: "1px solid rgba(255,255,255,0.1)",
-                }}
-              >
-                {[
-                  { v: "CHF 53.7B", l: "AUM" },
-                  { v: "994", l: "Employees" },
-                  { v: "5", l: "Locations" },
-                ].map((s) => (
-                  <Box key={s.l}>
-                    <Typography sx={{ fontFamily: "Georgia,serif", fontWeight: 700, fontSize: "1.7rem", color: GOLD, lineHeight: 1 }}>
-                      {s.v}
-                    </Typography>
-                    <Typography sx={{ color: "rgba(255,255,255,0.4)", fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.08em", mt: 0.3 }}>
-                      {s.l}
-                    </Typography>
-                  </Box>
-                ))}
-              </Box>
-            </Grid>
-
-            {/* Right cards grid */}
-            <Grid size={{ xs: 12, lg: 6 }} sx={{ display: { xs: "none", lg: "block" } }}>
-              <Grid container spacing={2}>
-                {[
-                  { icon: SecurityIcon,       title: "Partnership for Progress", body: "70 years of trust, stability and innovation." },
-                  { icon: EmojiEventsIcon,     title: "Award-Winning Service",    body: "Best medium-sized bank – ASWM 2026." },
-                  { icon: LanguageIcon,        title: "Global Presence",          body: "5 strategic financial centres worldwide." },
-                  { icon: AccountBalanceIcon,  title: "Independent Since 1956",   body: "Conservative balance sheet, long-term vision." },
-                ].map((card, i) => (
-                  <Grid key={card.title} size={6}>
-                    <Box
-                      sx={{
-                        bgcolor: "rgba(255,255,255,0.05)",
-                        border: "1px solid rgba(255,255,255,0.09)",
-                        borderRadius: "6px",
-                        p: 2.5,
-                        mt: i % 2 !== 0 ? 2 : 0,
-                        transition: "all 0.22s",
-                        "&:hover": {
-                          bgcolor: "rgba(255,255,255,0.09)",
-                          borderColor: `rgba(184,151,90,0.35)`,
-                        },
-                      }}
-                    >
-                      <card.icon sx={{ color: GOLD, fontSize: 22, mb: 1.2 }} />
-                      <Typography sx={{ color: "#fff", fontWeight: 600, fontSize: "0.88rem", mb: 0.6 }}>
-                        {card.title}
-                      </Typography>
-                      <Typography sx={{ color: "rgba(255,255,255,0.45)", fontSize: "0.78rem", lineHeight: 1.6 }}>
-                        {card.body}
-                      </Typography>
-                    </Box>
-                  </Grid>
-                ))}
-              </Grid>
-            </Grid>
-          </Grid>
-        </Box>
-      </Box>
-
-      {/* ═══════════════════════════════════════════
-          THREE PILLARS
-      ═══════════════════════════════════════════ */}
-      <Box sx={{ bgcolor: CREAM, py: { xs: 8, md: 12 } }}>
-        <Box sx={{ maxWidth: 1280, mx: "auto", px: { xs: 2.5, sm: 5 } }}>
-          <Box sx={{ textAlign: "center", mb: 7 }}>
-            <Box className="gold-rule" sx={{ mx: "auto", mb: 2 }} />
-            <Typography variant="h2" sx={{ fontSize: { xs: "1.9rem", md: "2.5rem" }, color: NAVY }}>
-              Why Shaelcore
-            </Typography>
-            <Typography sx={{ color: "#6b7280", mt: 1.5, maxWidth: 460, mx: "auto", fontSize: "0.95rem" }}>
-              Three pillars that define our approach to every client relationship.
-            </Typography>
-          </Box>
-
-          <Grid container spacing={3}>
-            {pillars.map((p) => (
-              <Grid key={p.title} size={{ xs: 12, md: 4 }}>
-                <Card
-                  component={Link}
-                  href={p.href}
-                  className="card-lift"
-                  sx={{
-                    textDecoration: "none", height: "100%",
-                    display: "flex", flexDirection: "column",
-                    "&:hover .arrow-icon": { transform: "translateX(4px)" },
-                  }}
-                >
-                  <CardContent sx={{ p: 4, flexGrow: 1 }}>
-                    <Box
-                      sx={{
-                        width: 48, height: 48, borderRadius: "6px",
-                        bgcolor: NAVY,
-                        display: "flex", alignItems: "center", justifyContent: "center",
-                        mb: 3,
-                      }}
-                    >
-                      <p.icon sx={{ color: GOLD, fontSize: 22 }} />
-                    </Box>
-                    <Typography variant="h5" sx={{ color: NAVY, mb: 1.5, fontFamily: "Georgia,serif", fontSize: "1.1rem" }}>
-                      {p.title}
-                    </Typography>
-                    <Typography sx={{ color: "#6b7280", fontSize: "0.88rem", lineHeight: 1.75 }}>
-                      {p.body}
-                    </Typography>
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 0.6, mt: 3, color: GOLD, fontSize: "0.84rem", fontWeight: 600 }}>
-                      Learn more{" "}
-                      <ArrowForwardIcon className="arrow-icon" sx={{ fontSize: 15, transition: "transform 0.2s" }} />
-                    </Box>
-                  </CardContent>
-                </Card>
-              </Grid>
+          <div className="grid gap-5 lg:grid-cols-3">
+            {serviceLines.map(({ number, label, title, body, icon: Icon, className, links, href }) => (
+              <article key={number} className={`flex min-h-full flex-col p-6 sm:p-7 ${className}`}>
+                <div className="mb-10 flex items-start justify-between">
+                  <span className="text-xs font-semibold tracking-[0.15em] opacity-75">{number}</span>
+                  <Icon size={25} strokeWidth={1.2} />
+                </div>
+                <p className="text-[0.62rem] font-semibold uppercase tracking-[0.17em] opacity-65">{label}</p>
+                <h3 className="mt-2 font-serif text-2xl">{title}</h3>
+                <p className="mt-3 min-h-[72px] text-sm leading-7 opacity-75">{body}</p>
+                <div className="mt-6 border-t border-current/15 pt-4">
+                  <p className="mb-3 text-[0.62rem] font-semibold uppercase tracking-[0.15em] opacity-60">Explore services</p>
+                  <ul className="grid gap-2.5">
+                    {links.map((link) => (
+                      <li key={link.label}>
+                        <Link href={link.href} className="group flex items-center justify-between gap-3 text-sm opacity-85 transition hover:opacity-100">
+                          {link.label}<ArrowUpRight size={14} className="shrink-0 opacity-50 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100" />
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <Link href={href} className="mt-7 inline-flex items-center gap-2 border-t border-current/15 pt-4 text-sm font-semibold">
+                  Explore this service area <ArrowRight size={15} />
+                </Link>
+              </article>
             ))}
-          </Grid>
-        </Box>
-      </Box>
+          </div>
+        </div>
+      </section>
 
-      {/* ═══════════════════════════════════════════
-          STATS BAND
-      ═══════════════════════════════════════════ */}
-      <Box sx={{ bgcolor: NAVY, py: { xs: 6, md: 8 } }}>
-        <Box sx={{ maxWidth: 1280, mx: "auto", px: { xs: 2.5, sm: 5 } }}>
-          <Grid container>
-            {stats.map((s, i) => (
-              <Grid key={s.label} size={{ xs: 6, md: 3 }}>
-                <Box
-                  sx={{
-                    textAlign: "center",
-                    py: { xs: 3, md: 0 },
-                    borderRight: i < 3 ? { md: "1px solid rgba(255,255,255,0.1)" } : "none",
-                    px: 2,
-                  }}
-                >
-                  <Typography sx={{ fontFamily: "Georgia,serif", fontWeight: 700, fontSize: { xs: "2rem", md: "2.6rem" }, color: GOLD, lineHeight: 1 }}>
-                    {s.value}
-                  </Typography>
-                  <Typography sx={{ color: "#fff", fontSize: "0.86rem", fontWeight: 500, mt: 1 }}>
-                    {s.label}
-                  </Typography>
-                  <Typography sx={{ color: "rgba(255,255,255,0.35)", fontSize: "0.74rem", mt: 0.4 }}>
-                    {s.sub}
-                  </Typography>
-                </Box>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-      </Box>
-
-      {/* ═══════════════════════════════════════════
-          SERVICES
-      ═══════════════════════════════════════════ */}
-      <Box sx={{ bgcolor: "#fff", py: { xs: 8, md: 12 } }}>
-        <Box sx={{ maxWidth: 1280, mx: "auto", px: { xs: 2.5, sm: 5 } }}>
-          <Box sx={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", mb: 7, flexWrap: "wrap", gap: 2 }}>
-            <Box>
-              <Box className="gold-rule" sx={{ mb: 2 }} />
-              <Typography variant="h2" sx={{ fontSize: { xs: "1.9rem", md: "2.5rem" }, color: NAVY }}>
-                Our Services
-              </Typography>
-            </Box>
-            <Box
-              component={Link}
-              href="/private-banking/investing/private-banking"
-              sx={{
-                display: "flex", alignItems: "center", gap: 0.5,
-                color: NAVY, fontSize: "0.88rem", fontWeight: 600,
-                textDecoration: "none",
-                "&:hover": { color: GOLD },
-                transition: "color 0.2s",
-                "& svg": { transition: "transform 0.2s" },
-                "&:hover svg": { transform: "translateX(4px)" },
-              }}
-            >
-              View all services <ArrowForwardIcon sx={{ fontSize: 16 }} />
-            </Box>
-          </Box>
-
-          <Grid container spacing={3}>
-            {services.map((svc) => (
-              <Grid key={svc.title} size={{ xs: 12, sm: 6, lg: 3 }}>
-                <Card
-                  component={Link}
-                  href={svc.href}
-                  className="card-lift"
-                  sx={{
-                    textDecoration: "none",
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    "&:hover .svc-icon-box": { bgcolor: NAVY },
-                    "&:hover .svc-icon": { color: GOLD },
-                    "&:hover .svc-arrow": { transform: "translateX(4px)" },
-                  }}
-                >
-                  <CardContent sx={{ p: 3.5, flexGrow: 1 }}>
-                    <Box
-                      className="svc-icon-box"
-                      sx={{
-                        width: 42, height: 42, borderRadius: "6px",
-                        bgcolor: CREAM,
-                        display: "flex", alignItems: "center", justifyContent: "center",
-                        mb: 2.5,
-                        transition: "background 0.22s",
-                      }}
-                    >
-                      <svc.icon className="svc-icon" sx={{ color: NAVY, fontSize: 20, transition: "color 0.22s" }} />
-                    </Box>
-                    <Typography sx={{ fontWeight: 600, color: NAVY, mb: 1, fontSize: "0.95rem" }}>
-                      {svc.title}
-                    </Typography>
-                    <Typography sx={{ color: "#6b7280", fontSize: "0.84rem", lineHeight: 1.72 }}>
-                      {svc.body}
-                    </Typography>
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 0.5, mt: 2.5, color: GOLD, fontSize: "0.8rem", fontWeight: 600 }}>
-                      Discover
-                      <ArrowForwardIcon className="svc-arrow" sx={{ fontSize: 13, transition: "transform 0.2s" }} />
-                    </Box>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-      </Box>
-
-      {/* ═══════════════════════════════════════════
-          ABOUT SPLIT
-      ═══════════════════════════════════════════ */}
-      <Box sx={{ bgcolor: CREAM, py: { xs: 8, md: 12 } }}>
-        <Box sx={{ maxWidth: 1280, mx: "auto", px: { xs: 2.5, sm: 5 } }}>
-          <Grid container spacing={8} sx={{ alignItems: "flex-start" }}>
-            {/* copy */}
-            <Grid size={{ xs: 12, lg: 6 }}>
-              <Box className="gold-rule" sx={{ mb: 2.5 }} />
-              <Typography variant="h2" sx={{ fontSize: { xs: "1.9rem", md: "2.5rem" }, color: NAVY, mb: 3 }}>
-                About Shaelcore
-              </Typography>
-              <Typography sx={{ color: "#4a5568", lineHeight: 1.8, mb: 2.5, fontSize: "0.95rem" }}>
-                Shaelcore was founded on 4 April 1956 by Guido Feger in Vaduz, Liechtenstein. With
-                above-average capitalisation, strong liquidity and around 1,000 committed employees,
-                we are one of the three system-relevant banks in Liechtenstein.
-              </Typography>
-              <Typography sx={{ color: "#4a5568", lineHeight: 1.8, mb: 4, fontSize: "0.95rem" }}>
-                Our purpose – <em>"Partnership for Progress"</em> – reflects what drives us:
-                identifying opportunities together with you, taking responsibility, and shaping
-                progress for nearly 70 years.
-              </Typography>
-
-              <Box component="ul" sx={{ listStyle: "none", m: 0, p: 0, mb: 4, display: "flex", flexDirection: "column", gap: 1.5 }}>
-                {reasons.map((r) => (
-                  <Box key={r} component="li" sx={{ display: "flex", alignItems: "flex-start", gap: 1.5 }}>
-                    <CheckCircleIcon sx={{ color: GOLD, fontSize: 18, mt: 0.2, flexShrink: 0 }} />
-                    <Typography sx={{ color: "#4a5568", fontSize: "0.88rem" }}>{r}</Typography>
-                  </Box>
+      <section className="bg-white py-16 sm:py-20">
+        <div className="mx-auto max-w-[1320px] px-5 sm:px-8">
+          <div className="grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-start lg:gap-20">
+            <div>
+              <span className="mb-5 block h-0.5 w-12 bg-[#B86F43]" />
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[#8F4E2F]">A broader view</p>
+              <h2 className="mt-3 font-serif text-3xl leading-tight text-[#101418] sm:text-4xl">Your plans don&apos;t stand still. Neither should your possibilities.</h2>
+            </div>
+            <div>
+              <p className="text-sm leading-8 text-[#5D6461] sm:text-base">
+                A new ambition can open a new door. We begin by understanding what matters to you, then explore the practical steps that can move your plans forward. Our service areas can stand alone or come together as your needs evolve.
+              </p>
+              <Link href="/about-us/company-portrait" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#101418] hover:text-[#8F4E2F]">
+                Discover our approach <ArrowRight size={15} />
+              </Link>
+              <div className="mt-9 grid gap-3 sm:grid-cols-3">
+                {principles.map(({ icon: Icon, title, text }) => (
+                  <div key={title} className="border-t border-[#E4A45F] pt-4">
+                    <Icon size={19} className="text-[#8F4E2F]" strokeWidth={1.5} />
+                    <h3 className="mt-3 font-serif text-base text-[#101418]">{title}</h3>
+                    <p className="mt-1.5 text-xs leading-6 text-[#6C7470]">{text}</p>
+                  </div>
                 ))}
-              </Box>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <Button
-                component={Link}
-                href="/about-us/company-portrait"
-                variant="contained"
-                endIcon={<ArrowForwardIcon />}
-              >
-                More about Shaelcore
-              </Button>
-            </Grid>
-
-            {/* shareholders + stock */}
-            <Grid size={{ xs: 12, lg: 6 }}>
-              <Typography sx={{ fontWeight: 600, color: NAVY, mb: 2.5, fontSize: "1rem" }}>
-                Anchor Shareholders
-              </Typography>
-              <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5, mb: 3 }}>
-                {[
-                  { name: "Stiftung Fürstlicher Kommerzienrat Guido Feger", role: "Largest Shareholder · Founded 1954" },
-                  { name: "U.M.M. Hilti-Stiftung",                          role: "Strategic Anchor Shareholder" },
-                  { name: "Marxer Stiftung für Bank- und Unternehmenswerte", role: "Strategic Anchor Shareholder" },
-                ].map((s) => (
-                  <Box
-                    key={s.name}
-                    sx={{
-                      bgcolor: "#fff",
-                      border: "1px solid #e2ddd6",
-                      borderRadius: "4px",
-                      p: 2.5,
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 2,
-                      transition: "box-shadow 0.2s",
-                      "&:hover": { boxShadow: "0 4px 16px -4px rgba(13,33,55,0.1)" },
-                    }}
-                  >
-                    <Box sx={{ width: 3, height: 36, bgcolor: GOLD, borderRadius: 2, flexShrink: 0 }} />
-                    <Box>
-                      <Typography sx={{ fontWeight: 600, fontSize: "0.84rem", color: NAVY }}>{s.name}</Typography>
-                      <Typography sx={{ fontSize: "0.74rem", color: "#9ca3af", mt: 0.3 }}>{s.role}</Typography>
-                    </Box>
-                  </Box>
-                ))}
-              </Box>
-
-              <Box
-                sx={{
-                  bgcolor: NAVY, borderRadius: "4px", p: 3,
-                  display: "flex", alignItems: "center", justifyContent: "space-between", gap: 3,
-                }}
-              >
-                <Box>
-                  <Typography variant="overline" sx={{ color: GOLD, fontSize: "0.62rem", letterSpacing: "0.1em" }}>
-                    SIX Swiss Exchange
-                  </Typography>
-                  <Typography sx={{ color: "#fff", fontWeight: 600, mt: 0.3 }}>
-                    Ticker: <span style={{ color: GOLD }}>VPBN</span>
-                  </Typography>
-                  <Typography sx={{ color: "rgba(255,255,255,0.4)", fontSize: "0.78rem", mt: 0.3 }}>
-                    Rated A– by Standard & Poor's
-                  </Typography>
-                </Box>
-                <Box sx={{ textAlign: "right" }}>
-                  <Typography sx={{ color: GOLD, fontFamily: "Georgia,serif", fontWeight: 700, fontSize: "1.5rem" }}>
-                    CHF 100K
-                  </Typography>
-                  <Typography sx={{ color: "rgba(255,255,255,0.35)", fontSize: "0.72rem" }}>
-                    Deposit guarantee
-                  </Typography>
-                </Box>
-              </Box>
-            </Grid>
-          </Grid>
-        </Box>
-      </Box>
-
-      {/* ═══════════════════════════════════════════
-          QUOTE / RESEARCH BAND
-      ═══════════════════════════════════════════ */}
-      <Box sx={{ bgcolor: NAVY, py: { xs: 8, md: 10 } }}>
-        <Box sx={{ maxWidth: 1280, mx: "auto", px: { xs: 2.5, sm: 5 } }}>
-          <Grid container spacing={6} sx={{ alignItems: "center" }}>
-            <Grid size={{ xs: 12, md: 7 }}>
-              <FormatQuoteIcon sx={{ color: `${GOLD}40`, fontSize: 56, mb: 1 }} />
-              <Typography
-                sx={{
-                  fontFamily: "Georgia,serif",
-                  fontSize: { xs: "1.2rem", md: "1.55rem" },
-                  color: "#fff",
-                  fontWeight: 400,
-                  lineHeight: 1.65,
-                  mb: 3,
-                  maxWidth: 620,
-                }}
-              >
-                The markets change on a daily basis. But your decisions should still exude a sense of calm.
-              </Typography>
-              <Divider sx={{ borderColor: `${GOLD}30`, mb: 3, width: 60 }} />
-              <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                <Box sx={{ width: 40, height: 40, borderRadius: "50%", bgcolor: GOLD, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Typography sx={{ color: NAVY, fontWeight: 700, fontSize: "0.78rem" }}>TZ</Typography>
-                </Box>
-                <Box>
-                  <Typography sx={{ color: "#fff", fontSize: "0.86rem", fontWeight: 600 }}>Thomas Ziegler</Typography>
-                  <Typography sx={{ color: "rgba(255,255,255,0.45)", fontSize: "0.76rem" }}>Head of Markets</Typography>
-                </Box>
-              </Box>
-            </Grid>
-            <Grid size={{ xs: 12, md: 5 }}>
-              <Box
-                sx={{
-                  bgcolor: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.09)",
-                  borderRadius: "6px",
-                  p: 4,
-                }}
-              >
-                <Typography variant="overline" sx={{ color: GOLD, fontSize: "0.62rem", letterSpacing: "0.1em", mb: 2, display: "block" }}>
-                  Market Intelligence
-                </Typography>
-                <Typography sx={{ color: "#fff", fontWeight: 600, fontSize: "1rem", mb: 1.5, fontFamily: "Georgia,serif" }}>
-                  Research & Our View
-                </Typography>
-                <Typography sx={{ color: "rgba(255,255,255,0.5)", fontSize: "0.86rem", lineHeight: 1.72, mb: 3 }}>
-                  Our CIO Office continuously analyses international financial markets. As a client, you
-                  access the same assessments and investment ideas our advisors rely on daily.
-                </Typography>
-                <Button
-                  component={Link}
-                  href="/research"
-                  variant="outlined"
-                  endIcon={<ArrowForwardIcon />}
-                  sx={{
-                    borderColor: `${GOLD}60`,
-                    color: GOLD,
-                    "&:hover": { borderColor: GOLD, bgcolor: `${GOLD}10` },
-                  }}
-                >
-                  To the Research Portal
-                </Button>
-              </Box>
-            </Grid>
-          </Grid>
-        </Box>
-      </Box>
-
-      {/* ═══════════════════════════════════════════
-          LOCATIONS
-      ═══════════════════════════════════════════ */}
-      <Box sx={{ bgcolor: "#fff", py: { xs: 8, md: 10 } }}>
-        <Box sx={{ maxWidth: 1280, mx: "auto", px: { xs: 2.5, sm: 5 }, textAlign: "center" }}>
-          <Box className="gold-rule" sx={{ mx: "auto", mb: 2 }} />
-          <Typography variant="h2" sx={{ fontSize: { xs: "1.8rem", md: "2.3rem" }, color: NAVY, mb: 1.5 }}>
-            Five Locations. One Standard.
-          </Typography>
-          <Typography sx={{ color: "#6b7280", mb: 6, fontSize: "0.95rem" }}>
-            International reach with first-class local expertise.
-          </Typography>
-          <Grid container spacing={2.5} sx={{ justifyContent: "center" }}>
-            {locations.map((loc) => (
-              <Grid key={loc.city} size={{ xs: 6, sm: 4, md: "auto" }}>
-                <Box
-                  component={Link}
-                  href="/contact"
-                  className="card-lift"
-                  sx={{
-                    display: "block",
-                    textDecoration: "none",
-                    bgcolor: CREAM,
-                    border: "1px solid #e2ddd6",
-                    borderRadius: "6px",
-                    p: 3,
-                    minWidth: 130,
-                    textAlign: "center",
-                    "&:hover": { borderColor: GOLD },
-                  }}
-                >
-                  <LocationOnIcon sx={{ color: GOLD, fontSize: 20, mb: 1 }} />
-                  <Typography sx={{ fontWeight: 600, color: NAVY, fontSize: "0.88rem" }}>{loc.city}</Typography>
-                  <Typography sx={{ color: "#9ca3af", fontSize: "0.76rem" }}>{loc.country}</Typography>
-                  <Typography sx={{ color: GOLD, fontSize: "0.72rem", mt: 0.5, fontWeight: 500 }}>{loc.desc}</Typography>
-                </Box>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-      </Box>
-
-      {/* ═══════════════════════════════════════════
-          FINAL CTA
-      ═══════════════════════════════════════════ */}
-      <Box sx={{ bgcolor: CREAM, py: { xs: 8, md: 12 } }}>
-        <Box sx={{ maxWidth: 680, mx: "auto", px: { xs: 2.5, sm: 5 }, textAlign: "center" }}>
-          <Box className="gold-rule" sx={{ mx: "auto", mb: 3 }} />
-          <Typography variant="h2" sx={{ fontSize: { xs: "1.9rem", md: "2.6rem" }, color: NAVY, mb: 2 }}>
-            Start Your Financial Journey
-          </Typography>
-          <Typography sx={{ color: "#4a5568", fontSize: "1rem", lineHeight: 1.8, mb: 5 }}>
-            For nearly 70 years, Shaelcore has combined stability, personal advice and innovative
-            financial solutions. Let's plan your route to greater financial security.
-          </Typography>
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, justifyContent: "center" }}>
-            <Button
-              component={Link}
-              href="/contact"
-              variant="contained"
-              endIcon={<ArrowForwardIcon />}
-              sx={{ py: 1.4, px: 3.5, fontSize: "0.9rem" }}
-            >
-              Arrange an Appointment
-            </Button>
-            <Button
-              component={Link}
-              href="/research"
-              variant="outlined"
-              sx={{ py: 1.4, px: 3.5, fontSize: "0.9rem" }}
-            >
-              Read Our Research
-            </Button>
-          </Box>
-        </Box>
-      </Box>
+      <section className="bg-[#101418] py-14 text-white sm:py-16">
+        <div className="mx-auto flex max-w-[1320px] flex-col justify-between gap-7 px-5 sm:px-8 md:flex-row md:items-center">
+          <div>
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[#F0B968]">Your next step</p>
+            <h2 className="mt-3 max-w-2xl font-serif text-3xl leading-tight sm:text-4xl">Big plans start with a simple conversation.</h2>
+          </div>
+          <Link href="/contact" className="group inline-flex items-center gap-4 self-start bg-[#E4A45F] px-7 py-4 text-sm font-semibold text-[#101418] transition hover:bg-[#F4C986] md:self-auto">
+            Let&apos;s talk <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+          </Link>
+        </div>
+      </section>
     </>
   );
 }

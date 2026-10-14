@@ -15,9 +15,9 @@ import CircularProgress from "@mui/material/CircularProgress";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import LockIcon from "@mui/icons-material/Lock";
 
-const NAVY = "#0d2137";
-const GOLD = "#b8975a";
-const CREAM = "#f5f2ed";
+const NAVY = "#101418";
+const GOLD = "#B86F43";
+const CREAM = "#E9E1D2";
 
 // Wrapper component for Next.js Link with Material-UI components
 const LocalLinkComponent = forwardRef<
@@ -71,7 +71,7 @@ function LoginContent() {
         sx={{
           width: "100%",
           maxWidth: 420,
-          boxShadow: "0 8px 32px -8px rgba(13,33,55,0.15)",
+          boxShadow: "0 8px 32px -8px rgba(16,20,24,0.15)",
         }}
       >
         <CardContent sx={{ p: 5 }}>
@@ -94,7 +94,7 @@ function LoginContent() {
             </Box>
             <Typography
               sx={{
-                fontFamily: "Georgia, serif",
+                fontFamily: "Space Grotesk, sans-serif",
                 fontSize: "1.8rem",
                 color: NAVY,
                 mb: 0.5,
@@ -103,7 +103,7 @@ function LoginContent() {
               Welcome Back
             </Typography>
             <Typography sx={{ color: "#9ca3af", fontSize: "0.9rem" }}>
-              Sign in to your Shaelcore account
+              Sign in to your ShaelCore account
             </Typography>
           </Box>
 

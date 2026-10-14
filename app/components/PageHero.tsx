@@ -24,7 +24,7 @@ export default function PageHero({ badge, breadcrumbs, title, titleAccent, subti
   return (
     <Box
       sx={{
-        bgcolor: "#0d2137",
+        bgcolor: "#101418",
         pt: { xs: 9, md: 12 },
         pb: { xs: 8, md: 10 },
         position: "relative",
@@ -33,10 +33,10 @@ export default function PageHero({ badge, breadcrumbs, title, titleAccent, subti
     >
       {/* top gold rule */}
       <Box sx={{ position: "absolute", top: 0, left: 0, right: 0, height: 3,
-        background: "linear-gradient(90deg,transparent,#b8975a,transparent)" }} />
+        background: "linear-gradient(90deg,transparent,#B86F43,transparent)" }} />
       {/* radial glow */}
       <Box sx={{ position: "absolute", inset: 0, pointerEvents: "none",
-        background: "radial-gradient(ellipse 55% 70% at 80% 50%, rgba(184,151,90,0.07) 0%, transparent 65%)" }} />
+        background: "radial-gradient(ellipse 55% 70% at 80% 50%, rgba(240,185,104,0.07) 0%, transparent 65%)" }} />
 
       <Box sx={{ maxWidth: 1280, mx: "auto", px: { xs: 2.5, sm: 5 }, position: "relative" }}>
         {/* breadcrumbs */}
@@ -44,9 +44,9 @@ export default function PageHero({ badge, breadcrumbs, title, titleAccent, subti
           <Box sx={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 0.5, mb: 3 }}>
             {breadcrumbs.map((c, i) => (
               <Box key={c.label} sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-                {i > 0 && <NavigateNextIcon sx={{ fontSize: 13, color: "rgba(184,151,90,0.5)" }} />}
+                {i > 0 && <NavigateNextIcon sx={{ fontSize: 13, color: "rgba(240,185,104,0.5)" }} />}
                 {c.href ? (
-                  <Box component={Link} href={c.href} sx={{ color: "#b8975a", fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase", textDecoration: "none", "&:hover": { color: "#fff" }, transition: "color 0.2s" }}>
+                  <Box component={Link} href={c.href} sx={{ color: "#B86F43", fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase", textDecoration: "none", "&:hover": { color: "#fff" }, transition: "color 0.2s" }}>
                     {c.label}
                   </Box>
                 ) : (
@@ -64,9 +64,9 @@ export default function PageHero({ badge, breadcrumbs, title, titleAccent, subti
             label={badge}
             size="small"
             sx={{
-              mb: 2.5, bgcolor: "rgba(184,151,90,0.12)", color: "#b8975a",
+              mb: 2.5, bgcolor: "rgba(240,185,104,0.12)", color: "#B86F43",
               fontWeight: 600, fontSize: "0.68rem", letterSpacing: "0.08em",
-              border: "1px solid rgba(184,151,90,0.28)", borderRadius: "20px",
+              border: "1px solid rgba(240,185,104,0.28)", borderRadius: "20px",
             }}
           />
         )}
@@ -77,7 +77,7 @@ export default function PageHero({ badge, breadcrumbs, title, titleAccent, subti
             fontSize: { xs: "2rem", sm: "2.8rem", md: "3.4rem" },
             color: "#fff", fontWeight: 700, lineHeight: 1.13,
             mb: subtitle || body ? 2.5 : 0, maxWidth: 780,
-            "& span": { color: "#b8975a" },
+            "& span": { color: "#B86F43" },
           }}
         >
           {title}

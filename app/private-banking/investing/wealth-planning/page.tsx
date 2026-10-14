@@ -3,9 +3,10 @@ import Link from "next/link";
 import { ArrowRight, ChevronRight, Shield, Clock, Users, RefreshCw, FileText, Globe } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Wealth Planning",
+  title: { absolute: "Wealth Planning | ShaelCore" },
   description:
     "A sound wealth plan begins with what you want to achieve. ShaelCore brings together all relevant financial considerations – retirement, succession, asset structures.",
+  alternates: { canonical: "/private-banking/investing/wealth-planning" },
 };
 
 const planningAreas = [
@@ -28,19 +29,19 @@ export default function WealthPlanningPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-[#0a1f3c] py-24 relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#c8a96e] to-transparent" />
+      <section className="bg-[#101418] py-24 relative overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#B86F43] to-transparent" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-2 text-[#c8a96e] text-xs font-sans-vp uppercase tracking-widest mb-5">
+            <div className="flex items-center gap-2 text-[#B86F43] text-xs font-sans-vp uppercase tracking-widest mb-5">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <ChevronRight size={12} />
               <Link href="/private-banking/investing/private-banking" className="hover:text-white transition-colors">Private Banking</Link>
               <ChevronRight size={12} />
               <span>Wealth Planning</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight" style={{ fontFamily: "Georgia, serif" }}>
-              Wealth Planning<br /><span className="text-[#c8a96e]">Built Around Your Life</span>
+            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
+              Wealth Planning<br /><span className="text-[#B86F43]">Built Around Your Life</span>
             </h1>
             <p className="text-gray-300 font-sans-vp text-lg leading-relaxed mb-4">
               A sound wealth plan does not begin with your assets, but with what you want to achieve with them.
@@ -54,7 +55,7 @@ export default function WealthPlanningPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#c8a96e] text-[#0a1f3c] font-sans-vp font-semibold text-sm hover:bg-[#d4ba8a] transition-colors rounded-sm group"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#B86F43] text-[#101418] font-sans-vp font-semibold text-sm hover:bg-[#F0B968] transition-colors rounded-sm group"
             >
               Arrange an Appointment <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
@@ -66,8 +67,8 @@ export default function WealthPlanningPage() {
       <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="mb-12">
-            <div className="inline-block w-12 h-0.5 bg-[#c8a96e] mb-4" />
-            <h2 className="text-3xl font-bold text-[#0a1f3c]" style={{ fontFamily: "Georgia, serif" }}>
+            <div className="inline-block w-12 h-0.5 bg-[#B86F43] mb-4" />
+            <h2 className="text-3xl font-bold text-[#101418]" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
               Planning Areas We Cover
             </h2>
             <p className="text-[#6b7280] font-sans-vp mt-2">Comprehensive wealth planning across all aspects of your financial life.</p>
@@ -75,10 +76,10 @@ export default function WealthPlanningPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {planningAreas.map((area) => (
               <div key={area.title} className="border border-gray-100 rounded-xl p-6 hover:shadow-lg transition-all group">
-                <div className="w-10 h-10 rounded-lg bg-[#f8f5f0] flex items-center justify-center mb-4 group-hover:bg-[#0a1f3c] transition-colors">
-                  <area.icon size={18} className="text-[#0a1f3c] group-hover:text-[#c8a96e] transition-colors" />
+                <div className="w-10 h-10 rounded-lg bg-[#E9E1D2] flex items-center justify-center mb-4 group-hover:bg-[#101418] transition-colors">
+                  <area.icon size={18} className="text-[#101418] group-hover:text-[#B86F43] transition-colors" />
                 </div>
-                <h3 className="text-[#0a1f3c] font-semibold font-sans-vp mb-2">{area.title}</h3>
+                <h3 className="text-[#101418] font-semibold font-sans-vp mb-2">{area.title}</h3>
                 <p className="text-[#6b7280] font-sans-vp text-sm leading-relaxed">{area.desc}</p>
               </div>
             ))}
@@ -87,26 +88,26 @@ export default function WealthPlanningPage() {
       </section>
 
       {/* Our process */}
-      <section className="bg-[#f8f5f0] py-20">
+      <section className="bg-[#E9E1D2] py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <div className="inline-block w-12 h-0.5 bg-[#c8a96e] mb-4" />
-            <h2 className="text-3xl font-bold text-[#0a1f3c]" style={{ fontFamily: "Georgia, serif" }}>
+            <div className="inline-block w-12 h-0.5 bg-[#B86F43] mb-4" />
+            <h2 className="text-3xl font-bold text-[#101418]" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
               Our Planning Process
             </h2>
           </div>
           <div className="space-y-4">
             {process.map((p, i) => (
               <div key={p.step} className="bg-white rounded-xl p-7 flex items-start gap-6 border border-gray-100 hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 rounded-full bg-[#0a1f3c] flex items-center justify-center flex-shrink-0">
-                  <span className="text-[#c8a96e] font-bold text-lg" style={{ fontFamily: "Georgia, serif" }}>{p.step}</span>
+                <div className="w-12 h-12 rounded-full bg-[#101418] flex items-center justify-center flex-shrink-0">
+                  <span className="text-[#B86F43] font-bold text-lg" style={{ fontFamily: "Space Grotesk, sans-serif" }}>{p.step}</span>
                 </div>
                 <div>
-                  <h3 className="text-[#0a1f3c] font-semibold font-sans-vp mb-2">{p.title}</h3>
+                  <h3 className="text-[#101418] font-semibold font-sans-vp mb-2">{p.title}</h3>
                   <p className="text-[#6b7280] font-sans-vp text-sm leading-relaxed">{p.desc}</p>
                 </div>
                 {i < process.length - 1 && (
-                  <div className="absolute left-10 mt-20 w-px h-4 bg-[#c8a96e]/30 hidden" />
+                  <div className="absolute left-10 mt-20 w-px h-4 bg-[#B86F43]/30 hidden" />
                 )}
               </div>
             ))}
@@ -115,14 +116,14 @@ export default function WealthPlanningPage() {
       </section>
 
       {/* Quote strip */}
-      <section className="bg-[#0a1f3c] py-16">
+      <section className="bg-[#101418] py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <div className="text-6xl text-[#c8a96e]/30 font-serif mb-4">"</div>
-          <blockquote className="text-white text-xl font-light leading-relaxed mb-6" style={{ fontFamily: "Georgia, serif" }}>
+          <div className="text-6xl text-[#B86F43]/30 font-serif mb-4">"</div>
+          <blockquote className="text-white text-xl font-light leading-relaxed mb-6" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
             What matters is not only where you are today, but what you want your wealth to achieve for you, 
             your family, and the generations that follow.
           </blockquote>
-          <div className="text-[#c8a96e] font-sans-vp text-sm">ShaelCore Wealth Planning Team</div>
+          <div className="text-[#B86F43] font-sans-vp text-sm">ShaelCore Wealth Planning Team</div>
         </div>
       </section>
 
@@ -130,7 +131,7 @@ export default function WealthPlanningPage() {
       <section className="bg-white py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
-            <h3 className="text-xl font-semibold text-[#0a1f3c] font-sans-vp">Related Services</h3>
+            <h3 className="text-xl font-semibold text-[#101418] font-sans-vp">Related Services</h3>
           </div>
           <div className="grid sm:grid-cols-3 gap-4">
             {[
@@ -141,11 +142,11 @@ export default function WealthPlanningPage() {
               <Link
                 key={s.label}
                 href={s.href}
-                className="group border border-gray-100 rounded-lg p-5 hover:shadow-md hover:border-[#c8a96e]/40 transition-all"
+                className="group border border-gray-100 rounded-lg p-5 hover:shadow-md hover:border-[#B86F43]/40 transition-all"
               >
-                <div className="text-[#0a1f3c] font-semibold font-sans-vp text-sm mb-1 group-hover:text-[#c8a96e] transition-colors">{s.label}</div>
+                <div className="text-[#101418] font-semibold font-sans-vp text-sm mb-1 group-hover:text-[#B86F43] transition-colors">{s.label}</div>
                 <div className="text-[#6b7280] font-sans-vp text-xs">{s.desc}</div>
-                <div className="flex items-center gap-1 text-[#c8a96e] text-xs font-sans-vp mt-3 group-hover:gap-2 transition-all">
+                <div className="flex items-center gap-1 text-[#B86F43] text-xs font-sans-vp mt-3 group-hover:gap-2 transition-all">
                   Discover <ChevronRight size={11} />
                 </div>
               </Link>
@@ -155,9 +156,9 @@ export default function WealthPlanningPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#f8f5f0] py-16">
+      <section className="bg-[#E9E1D2] py-16">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-2xl font-bold text-[#0a1f3c] mb-4" style={{ fontFamily: "Georgia, serif" }}>
+          <h2 className="text-2xl font-bold text-[#101418] mb-4" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
             Start planning your future today
           </h2>
           <p className="text-[#4a4a6a] font-sans-vp mb-8">
@@ -166,7 +167,7 @@ export default function WealthPlanningPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#0a1f3c] text-white font-sans-vp font-semibold text-sm hover:bg-[#c8a96e] hover:text-[#0a1f3c] transition-colors rounded-sm group"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#101418] text-white font-sans-vp font-semibold text-sm hover:bg-[#B86F43] hover:text-[#101418] transition-colors rounded-sm group"
           >
             Arrange an Appointment <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
           </Link>

@@ -3,9 +3,10 @@ import Link from "next/link";
 import { ArrowRight, ChevronRight, Home, TrendingUp, Briefcase, Shield, Calculator } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Financing Solutions",
+  title: { absolute: "Financing Solutions | ShaelCore" },
   description:
     "ShaelCore financing solutions – mortgage loans, Lombard loans, and structured financing for private clients. Keeping your wealth invested while creating new opportunities.",
+  alternates: { canonical: "/private-banking/financing" },
 };
 
 const financingTypes = [
@@ -41,19 +42,19 @@ export default function FinancingPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-[#0a1f3c] py-24 relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#c8a96e] to-transparent" />
+      <section className="bg-[#101418] py-24 relative overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#B86F43] to-transparent" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-2 text-[#c8a96e] text-xs font-sans-vp uppercase tracking-widest mb-5">
+            <div className="flex items-center gap-2 text-[#B86F43] text-xs font-sans-vp uppercase tracking-widest mb-5">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <ChevronRight size={12} />
               <Link href="/private-banking/investing/private-banking" className="hover:text-white transition-colors">Private Banking</Link>
               <ChevronRight size={12} />
               <span>Financing</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight" style={{ fontFamily: "Georgia, serif" }}>
-              Financing Solutions<br /><span className="text-[#c8a96e]">Aligned with Your Wealth</span>
+            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
+              Financing Solutions<br /><span className="text-[#B86F43]">Aligned with Your Wealth</span>
             </h1>
             <p className="text-gray-300 font-sans-vp text-lg leading-relaxed mb-4">
               Having substantial assets does not mean that every project should be financed from your own liquidity.
@@ -66,7 +67,7 @@ export default function FinancingPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#c8a96e] text-[#0a1f3c] font-sans-vp font-semibold text-sm hover:bg-[#d4ba8a] transition-colors rounded-sm group"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#B86F43] text-[#101418] font-sans-vp font-semibold text-sm hover:bg-[#F0B968] transition-colors rounded-sm group"
             >
               Arrange an Appointment <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
@@ -78,23 +79,23 @@ export default function FinancingPage() {
       <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="mb-12">
-            <div className="inline-block w-12 h-0.5 bg-[#c8a96e] mb-4" />
-            <h2 className="text-3xl font-bold text-[#0a1f3c]" style={{ fontFamily: "Georgia, serif" }}>
+            <div className="inline-block w-12 h-0.5 bg-[#B86F43] mb-4" />
+            <h2 className="text-3xl font-bold text-[#101418]" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
               Our Financing Solutions
             </h2>
           </div>
           <div className="grid lg:grid-cols-3 gap-6">
             {financingTypes.map((f) => (
               <div key={f.title} className="border border-gray-100 rounded-xl p-7 hover:shadow-xl transition-all group flex flex-col">
-                <div className="w-12 h-12 rounded-lg bg-[#f8f5f0] flex items-center justify-center mb-5 group-hover:bg-[#0a1f3c] transition-colors">
-                  <f.icon size={20} className="text-[#0a1f3c] group-hover:text-[#c8a96e] transition-colors" />
+                <div className="w-12 h-12 rounded-lg bg-[#E9E1D2] flex items-center justify-center mb-5 group-hover:bg-[#101418] transition-colors">
+                  <f.icon size={20} className="text-[#101418] group-hover:text-[#B86F43] transition-colors" />
                 </div>
-                <h3 className="text-[#0a1f3c] font-bold text-lg mb-3 font-sans-vp">{f.title}</h3>
+                <h3 className="text-[#101418] font-bold text-lg mb-3 font-sans-vp">{f.title}</h3>
                 <p className="text-[#6b7280] font-sans-vp text-sm leading-relaxed mb-5 flex-1">{f.desc}</p>
                 <ul className="space-y-2 border-t border-gray-100 pt-5">
                   {f.features.map((feat) => (
                     <li key={feat} className="flex items-start gap-2.5 text-sm font-sans-vp text-[#4a4a6a]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#c8a96e] mt-1.5 flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#B86F43] mt-1.5 flex-shrink-0" />
                       {feat}
                     </li>
                   ))}
@@ -106,11 +107,11 @@ export default function FinancingPage() {
       </section>
 
       {/* When does financing make sense */}
-      <section className="bg-[#f8f5f0] py-20">
+      <section className="bg-[#E9E1D2] py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-16 items-start">
           <div>
-            <div className="inline-block w-12 h-0.5 bg-[#c8a96e] mb-6" />
-            <h2 className="text-3xl font-bold text-[#0a1f3c] mb-6" style={{ fontFamily: "Georgia, serif" }}>
+            <div className="inline-block w-12 h-0.5 bg-[#B86F43] mb-6" />
+            <h2 className="text-3xl font-bold text-[#101418] mb-6" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
               When Does Financing Make Sense?
             </h2>
             <p className="text-[#4a4a6a] font-sans-vp leading-relaxed mb-8">
@@ -120,8 +121,8 @@ export default function FinancingPage() {
             <ul className="space-y-4">
               {whenFinancing.map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-[#0a1f3c] flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-[#c8a96e] text-xs font-bold">✓</span>
+                  <div className="w-6 h-6 rounded-full bg-[#101418] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-[#B86F43] text-xs font-bold">✓</span>
                   </div>
                   <span className="text-[#4a4a6a] font-sans-vp text-sm leading-relaxed">{item}</span>
                 </li>
@@ -131,9 +132,9 @@ export default function FinancingPage() {
 
           <div className="space-y-4">
             {/* Our approach */}
-            <div className="bg-[#0a1f3c] rounded-xl p-8">
-              <div className="w-10 h-10 rounded-lg bg-[#c8a96e]/20 flex items-center justify-center mb-4">
-                <Calculator size={18} className="text-[#c8a96e]" />
+            <div className="bg-[#101418] rounded-xl p-8">
+              <div className="w-10 h-10 rounded-lg bg-[#B86F43]/20 flex items-center justify-center mb-4">
+                <Calculator size={18} className="text-[#B86F43]" />
               </div>
               <h3 className="text-white font-semibold font-sans-vp text-lg mb-3">Our Holistic Approach</h3>
               <p className="text-gray-300 font-sans-vp text-sm leading-relaxed mb-4">
@@ -145,8 +146,8 @@ export default function FinancingPage() {
               </p>
             </div>
             <div className="bg-white border border-gray-100 rounded-xl p-6">
-              <Shield size={18} className="text-[#c8a96e] mb-3" />
-              <h4 className="text-[#0a1f3c] font-semibold font-sans-vp mb-2">Transparency on Costs</h4>
+              <Shield size={18} className="text-[#B86F43] mb-3" />
+              <h4 className="text-[#101418] font-semibold font-sans-vp mb-2">Transparency on Costs</h4>
               <p className="text-[#6b7280] font-sans-vp text-sm leading-relaxed">
                 We discuss all financing costs openly and in advance. No hidden fees, no surprises – just clear, 
                 honest advice aligned with your interests.
@@ -160,7 +161,7 @@ export default function FinancingPage() {
       <section className="bg-white py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-8">
-            <h3 className="text-xl font-semibold text-[#0a1f3c] font-sans-vp">Related Private Banking Services</h3>
+            <h3 className="text-xl font-semibold text-[#101418] font-sans-vp">Related Private Banking Services</h3>
           </div>
           <div className="grid sm:grid-cols-3 gap-4">
             {[
@@ -168,10 +169,10 @@ export default function FinancingPage() {
               { label: "Wealth Management", href: "/private-banking/investing/wealth-management", desc: "Keep your portfolio invested while accessing capital through financing." },
               { label: "Investment Advisory", href: "/private-banking/investing/investment-advisory", desc: "Leverage financing to access new investment opportunities." },
             ].map((s) => (
-              <Link key={s.label} href={s.href} className="group border border-gray-100 rounded-lg p-5 hover:shadow-md hover:border-[#c8a96e]/40 transition-all">
-                <div className="text-[#0a1f3c] font-semibold font-sans-vp text-sm mb-1 group-hover:text-[#c8a96e] transition-colors">{s.label}</div>
+              <Link key={s.label} href={s.href} className="group border border-gray-100 rounded-lg p-5 hover:shadow-md hover:border-[#B86F43]/40 transition-all">
+                <div className="text-[#101418] font-semibold font-sans-vp text-sm mb-1 group-hover:text-[#B86F43] transition-colors">{s.label}</div>
                 <div className="text-[#6b7280] font-sans-vp text-xs">{s.desc}</div>
-                <div className="flex items-center gap-1 text-[#c8a96e] text-xs font-sans-vp mt-3 group-hover:gap-2 transition-all">
+                <div className="flex items-center gap-1 text-[#B86F43] text-xs font-sans-vp mt-3 group-hover:gap-2 transition-all">
                   Learn more <ChevronRight size={11} />
                 </div>
               </Link>
@@ -181,9 +182,9 @@ export default function FinancingPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#f8f5f0] py-16">
+      <section className="bg-[#E9E1D2] py-16">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-2xl font-bold text-[#0a1f3c] mb-4" style={{ fontFamily: "Georgia, serif" }}>
+          <h2 className="text-2xl font-bold text-[#101418] mb-4" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
             Explore your financing options
           </h2>
           <p className="text-[#4a4a6a] font-sans-vp mb-8">
@@ -192,7 +193,7 @@ export default function FinancingPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#0a1f3c] text-white font-sans-vp font-semibold text-sm hover:bg-[#c8a96e] hover:text-[#0a1f3c] transition-colors rounded-sm group"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#101418] text-white font-sans-vp font-semibold text-sm hover:bg-[#B86F43] hover:text-[#101418] transition-colors rounded-sm group"
           >
             Arrange an Appointment <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
           </Link>

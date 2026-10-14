@@ -18,29 +18,29 @@ import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 
-const NAVY = "#0d2137";
-const GOLD = "#b8975a";
+const NAVY = "#101418";
+const GOLD = "#B86F43";
 
 const regions = {
   "en-CH": {
     label: "English (Switzerland)", locale: "en-CH", currency: "CHF", portfolio: 2_500_000, performance: 114_500,
-    copy: { portal: "Client portal", greeting: "Good to see you", overview: "Here is an overview of your relationship with Shaelcore.", total: "Total portfolio value", performance: "Investment performance", year: "+4.8% this year", since: "Since 1 January 2026", accounts: "Your accounts", accountDescription: "Your current banking relationship at a glance.", primary: "Primary Account", appointment: "Speak with your advisor", next: "Plan your next move", nextBody: "Your advisor can help you review your investment strategy and long-term priorities.", arrange: "Arrange an appointment" },
+    copy: { portal: "Client portal", greeting: "Good to see you", overview: "Here is an overview of your relationship with ShaelCore.", total: "Total portfolio value", performance: "Investment performance", year: "+4.8% this year", since: "Since 1 January 2026", accounts: "Your portfolio", accountDescription: "Your wealth management relationship at a glance.", primary: "Managed Portfolio", appointment: "Speak with your advisor", next: "Plan your next move", nextBody: "Your advisor can help you review your investment strategy and long-term priorities.", arrange: "Arrange an appointment" },
   },
   "en-US": {
     label: "English (United States)", locale: "en-US", currency: "USD", portfolio: 2_750_000, performance: 126_000,
-    copy: { portal: "Client portal", greeting: "Good to see you", overview: "Here is an overview of your relationship with Shaelcore.", total: "Total portfolio value", performance: "Investment performance", year: "+4.8% this year", since: "Since January 1, 2026", accounts: "Your accounts", accountDescription: "Your current banking relationship at a glance.", primary: "Primary Account", appointment: "Speak with your advisor", next: "Plan your next move", nextBody: "Your advisor can help you review your investment strategy and long-term priorities.", arrange: "Arrange an appointment" },
+    copy: { portal: "Client portal", greeting: "Good to see you", overview: "Here is an overview of your relationship with ShaelCore.", total: "Total portfolio value", performance: "Investment performance", year: "+4.8% this year", since: "Since January 1, 2026", accounts: "Your portfolio", accountDescription: "Your wealth management relationship at a glance.", primary: "Managed Portfolio", appointment: "Speak with your advisor", next: "Plan your next move", nextBody: "Your advisor can help you review your investment strategy and long-term priorities.", arrange: "Arrange an appointment" },
   },
   "en-NG": {
     label: "English (Nigeria)", locale: "en-NG", currency: "NGN", portfolio: 3_750_000_000, performance: 172_500_000,
-    copy: { portal: "Client portal", greeting: "Good to see you", overview: "Here is an overview of your relationship with Shaelcore.", total: "Total portfolio value", performance: "Investment performance", year: "+4.8% this year", since: "Since 1 January 2026", accounts: "Your accounts", accountDescription: "Your current banking relationship at a glance.", primary: "Primary Account", appointment: "Speak with your advisor", next: "Plan your next move", nextBody: "Your advisor can help you review your investment strategy and long-term priorities.", arrange: "Arrange an appointment" },
+    copy: { portal: "Client portal", greeting: "Good to see you", overview: "Here is an overview of your relationship with ShaelCore.", total: "Total portfolio value", performance: "Investment performance", year: "+4.8% this year", since: "Since 1 January 2026", accounts: "Your portfolio", accountDescription: "Your wealth management relationship at a glance.", primary: "Managed Portfolio", appointment: "Speak with your advisor", next: "Plan your next move", nextBody: "Your advisor can help you review your investment strategy and long-term priorities.", arrange: "Arrange an appointment" },
   },
   "en-GB": {
     label: "English (United Kingdom)", locale: "en-GB", currency: "GBP", portfolio: 1_980_000, performance: 91_000,
-    copy: { portal: "Client portal", greeting: "Good to see you", overview: "Here is an overview of your relationship with Shaelcore.", total: "Total portfolio value", performance: "Investment performance", year: "+4.8% this year", since: "Since 1 January 2026", accounts: "Your accounts", accountDescription: "Your current banking relationship at a glance.", primary: "Primary Account", appointment: "Speak with your advisor", next: "Plan your next move", nextBody: "Your advisor can help you review your investment strategy and long-term priorities.", arrange: "Arrange an appointment" },
+    copy: { portal: "Client portal", greeting: "Good to see you", overview: "Here is an overview of your relationship with ShaelCore.", total: "Total portfolio value", performance: "Investment performance", year: "+4.8% this year", since: "Since 1 January 2026", accounts: "Your portfolio", accountDescription: "Your wealth management relationship at a glance.", primary: "Managed Portfolio", appointment: "Speak with your advisor", next: "Plan your next move", nextBody: "Your advisor can help you review your investment strategy and long-term priorities.", arrange: "Arrange an appointment" },
   },
   "de-DE": {
     label: "Deutsch (Deutschland)", locale: "de-DE", currency: "EUR", portfolio: 2_300_000, performance: 105_800,
-    copy: { portal: "Kundenportal", greeting: "Schön, Sie zu sehen", overview: "Hier finden Sie einen Überblick über Ihre Beziehung zu Shaelcore.", total: "Gesamtwert des Portfolios", performance: "Anlageperformance", year: "+4,8 % in diesem Jahr", since: "Seit dem 1. Januar 2026", accounts: "Ihre Konten", accountDescription: "Ihre aktuelle Bankbeziehung auf einen Blick.", primary: "Hauptkonto", appointment: "Mit Ihrem Berater sprechen", next: "Planen Sie Ihren nächsten Schritt", nextBody: "Ihr Berater unterstützt Sie bei der Überprüfung Ihrer Anlagestrategie und langfristigen Ziele.", arrange: "Termin vereinbaren" },
+    copy: { portal: "Kundenportal", greeting: "Schön, Sie zu sehen", overview: "Hier finden Sie einen Überblick über Ihre Beziehung zu ShaelCore.", total: "Gesamtwert des Portfolios", performance: "Anlageperformance", year: "+4,8 % in diesem Jahr", since: "Seit dem 1. Januar 2026", accounts: "Ihr Portfolio", accountDescription: "Ihre Vermögensverwaltung auf einen Blick.", primary: "Verwaltetes Portfolio", appointment: "Mit Ihrem Berater sprechen", next: "Planen Sie Ihren nächsten Schritt", nextBody: "Ihr Berater unterstützt Sie bei der Überprüfung Ihrer Anlagestrategie und langfristigen Ziele.", arrange: "Termin vereinbaren" },
   },
 } as const;
 
@@ -117,7 +117,7 @@ export default function DashboardPage() {
   };
 
   return (
-    <Box sx={{ bgcolor: "#fafaf8", minHeight: "100vh", py: { xs: 5, md: 8 } }}>
+    <Box sx={{ bgcolor: "#F7F4EC", minHeight: "100vh", py: { xs: 5, md: 8 } }}>
       <Box sx={{ maxWidth: 1180, mx: "auto", px: { xs: 2.5, md: 4 } }}>
         <Typography variant="overline" sx={{ color: GOLD }}>
           {copy.portal}
@@ -156,7 +156,7 @@ export default function DashboardPage() {
                       </Typography>
                       <Typography sx={{ color: "#16805a", fontSize: "0.85rem", mt: 0.75 }}>{detail}</Typography>
                     </Box>
-                    <Box sx={{ display: "grid", placeItems: "center", width: 44, height: 44, borderRadius: "50%", bgcolor: "#f5f2ed" }}>
+                    <Box sx={{ display: "grid", placeItems: "center", width: 44, height: 44, borderRadius: "50%", bgcolor: "#E9E1D2" }}>
                       <Icon sx={{ color: GOLD }} />
                     </Box>
                   </Box>
@@ -207,7 +207,7 @@ export default function DashboardPage() {
                 <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, gap: 1.5, py: 2.5, justifyContent: "space-between" }}>
                   <Box>
                     <Typography sx={{ color: NAVY, fontWeight: 600 }}>{copy.primary}</Typography>
-                    <Typography sx={{ color: "text.secondary", fontSize: "0.85rem", mt: 0.4 }}>VP Vida Advanced · acc-001</Typography>
+                    <Typography sx={{ color: "text.secondary", fontSize: "0.85rem", mt: 0.4 }}>Wealth management · acc-001</Typography>
                   </Box>
                   <Typography sx={{ color: NAVY, fontWeight: 600 }}>{money(selectedRegion.portfolio)}</Typography>
                 </Box>

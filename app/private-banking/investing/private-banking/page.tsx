@@ -19,13 +19,13 @@ import PeopleIcon from "@mui/icons-material/People";
 import PageHero from "../../../components/PageHero";
 
 export const metadata: Metadata = {
-  title: "Private Banking from Liechtenstein",
-  description: "ShaelCore Private Banking in Switzerland – personal, long-term support combining local expertise with international perspective.",
+  title: "Private Banking & Wealth Services",
+  description: "Explore ShaelCore's private-banking and wealth services, including investment advisory, planning, and financing.",
 };
 
-const NAVY = "#0d2137";
-const GOLD = "#b8975a";
-const CREAM = "#f5f2ed";
+const NAVY = "#101418";
+const GOLD = "#B86F43";
+const CREAM = "#E9E1D2";
 
 const services = [
   { iconName: "TrendingUpIcon", title: "Wealth Management",   sub: "Your strategy, managed with conviction.", href: "/private-banking/investing/wealth-management",   detail: "Together we define your objectives, risk appetite and strategy. Our specialists make investment decisions on your behalf, guided by our market view, continuously adjusting your portfolio." },
@@ -35,12 +35,12 @@ const services = [
 ];
 
 const faqs = [
-  { q: "What level of assets does Private Banking start at?", a: "There is no fixed threshold. VP Vida Essential starts from CHF 250,000, VP Vida Advanced from CHF 750,000, and VP Vida Custom from CHF 2 million. VP Auda Advanced from CHF 250,000 and VP Auda Custom from CHF 1 million. Talk to us about your situation." },
+  { q: "What level of assets does Private Banking start at?", a: "Service scope depends on your circumstances and objectives. Contact us to discuss your needs and the services that may be appropriate for you." },
   { q: "What services are included in Private Banking?", a: "Private Banking includes investment advisory, wealth management, wealth planning, financing, succession planning and international asset structure solutions – tailored to your personal situation." },
   { q: "What is the difference between investment advisory and wealth management?", a: "In investment advisory, you make decisions yourself with expert support. In wealth management, our specialists make investment decisions within a jointly defined strategy." },
   { q: "What does personal support mean?", a: "You have a dedicated client advisor as your central point of contact who knows your goals, understands your situation, and provides long-term support – including access to our full range of expertise." },
-  { q: "What are the advantages of banking from Liechtenstein?", a: "Liechtenstein is one of Europe's established financial centres, known for stability, continuity and legal certainty – key prerequisites for structuring and protecting assets long-term." },
-  { q: "Does Shaelcore support international clients?", a: "Yes. With offices in Liechtenstein, Switzerland, Luxembourg, Singapore and the BVI, we combine local expertise with an international network for cross-border asset structures." },
+  { q: "How does ShaelCore's private-banking service work?", a: "We begin with a conversation about your goals, then explore which wealth-management, advisory, planning, and financing services fit your needs." },
+  { q: "Can ShaelCore support international clients?", a: "We can discuss your circumstances and help identify relevant expertise and next steps for your situation." },
   { q: "Can entrepreneurs benefit from Private Banking?", a: "Yes. We provide individual solutions and a holistic view of private and corporate assets, covering liquidity, wealth planning, financing and succession." },
 ];
 
@@ -50,9 +50,9 @@ export default function PrivateBankingPage() {
       <PageHero
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Private Banking" }]}
         title="Private Banking"
-        titleAccent="from Liechtenstein"
+        titleAccent="with a broader view"
         subtitle="As wealth grows, it becomes about more than the next investment decision. New opportunities emerge, responsibilities evolve, and decisions increasingly involve your family, business or the next generation."
-        body="In Switzerland, we support our clients personally and for the long term, combining local expertise with the international perspective of Shaelcore – wherever wealth, families and businesses extend beyond national borders."
+        body="ShaelCore brings private banking together with wealth management, investment advisory, planning, and financing—so you can explore the right combination for your circumstances."
         cta={{ label: "Arrange an Appointment", href: "/contact" }}
       />
 
@@ -98,7 +98,7 @@ export default function PrivateBankingPage() {
                   </Box>
                   <Box>
                     <Typography sx={{ fontWeight: 600, color: NAVY, fontSize: "1rem", mb: 1 }}>
-                      One contact. The whole of Shaelcore.
+                      One contact. The whole of ShaelCore.
                     </Typography>
                     <Typography sx={{ color: "#4a5568", fontSize: "0.88rem", lineHeight: 1.75 }}>
                       Your personal client advisor knows your situation, understands your goals and
@@ -134,7 +134,7 @@ export default function PrivateBankingPage() {
                   sx={{
                     textDecoration: "none", height: "100%", display: "flex", flexDirection: "column",
                     transition: "all 0.22s",
-                    "&:hover": { boxShadow: "0 10px 30px -8px rgba(13,33,55,0.14)", transform: "translateY(-3px)" },
+                    "&:hover": { boxShadow: "0 10px 30px -8px rgba(16,20,24,0.14)", transform: "translateY(-3px)" },
                     "&:hover .svc-icon-box": { bgcolor: NAVY },
                     "&:hover .svc-icon": { color: GOLD },
                   }}
@@ -160,43 +160,43 @@ export default function PrivateBankingPage() {
         </Box>
       </Box>
 
-      {/* Roots quote */}
+      {/* Long-term perspective */}
       <Box sx={{ bgcolor: NAVY, py: { xs: 8, md: 10 } }}>
         <Box sx={{ maxWidth: 1280, mx: "auto", px: { xs: 2.5, sm: 5 } }}>
           <Grid container spacing={6} sx={{ alignItems: "center" }}>
             <Grid size={{ xs: 12, md: 7 }}>
               <Box sx={{ width: 40, height: 2, bgcolor: GOLD, mb: 3 }} />
               <Typography variant="h2" sx={{ fontSize: { xs: "1.8rem", md: "2.3rem" }, color: "#fff", mb: 3 }}>
-                Private Banking with Roots in Liechtenstein
+                A longer-term view of wealth
               </Typography>
               <Typography sx={{ color: "rgba(255,255,255,0.65)", lineHeight: 1.8, mb: 2.5, fontSize: "0.95rem" }}>
-                Our roots are in Liechtenstein – a country with an international network that has always thought
-                entrepreneurially. This steadfast attitude has guided us from 1956 to the present day.
+                Financial decisions often connect to family, business, property, and plans for the next generation.
+                We bring a broader view to those conversations and help you consider the options available.
               </Typography>
               <Typography sx={{ color: "rgba(255,255,255,0.45)", lineHeight: 1.8, mb: 4, fontSize: "0.95rem" }}>
-                With locations in Liechtenstein, Switzerland, Luxembourg, Singapore and the British Virgin Islands,
-                we support people whose assets, companies and families have long since extended beyond national borders.
+                From investment advisory and wealth planning to financing, our services are designed to complement
+                one another while keeping your priorities at the centre.
               </Typography>
               <Button component="a" href="/about-us/company-portrait" variant="outlined"
                 sx={{ borderColor: `${GOLD}50`, color: GOLD, "&:hover": { borderColor: GOLD, bgcolor: `${GOLD}10` } }}
                 endIcon={<ArrowForwardIcon />}
               >
-                More about Shaelcore
+                More about ShaelCore
               </Button>
             </Grid>
             <Grid size={{ xs: 12, md: 5 }}>
               <Box sx={{ bgcolor: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.09)", borderRadius: "8px", p: 4.5 }}>
                 <FormatQuoteIcon sx={{ color: `${GOLD}50`, fontSize: 44, mb: 1.5 }} />
-                <Typography sx={{ fontFamily: "Georgia,serif", color: "#fff", fontSize: "1.1rem", lineHeight: 1.7, mb: 3 }}>
-                  "At Shaelcore, we have been helping clients grow complex assets in the area of Private Banking since 1956."
+                <Typography sx={{ fontFamily: "Space Grotesk,sans-serif", color: "#fff", fontSize: "1.1rem", lineHeight: 1.7, mb: 3 }}>
+                  "Good advice begins with understanding what matters to you—and seeing how each decision fits into the bigger picture."
                 </Typography>
                 <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                   <Box sx={{ width: 38, height: 38, borderRadius: "50%", bgcolor: GOLD, display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <Typography sx={{ color: NAVY, fontWeight: 700, fontSize: "0.72rem" }}>TZ</Typography>
                   </Box>
                   <Box>
-                    <Typography sx={{ color: "#fff", fontSize: "0.86rem", fontWeight: 600 }}>Thomas Ziegler</Typography>
-                    <Typography sx={{ color: "rgba(255,255,255,0.4)", fontSize: "0.76rem" }}>Head of Markets</Typography>
+                    <Typography sx={{ color: "#fff", fontSize: "0.86rem", fontWeight: 600 }}>ShaelCore Private Banking Team</Typography>
+                    <Typography sx={{ color: "rgba(255,255,255,0.4)", fontSize: "0.76rem" }}>Wealth &amp; advisory</Typography>
                   </Box>
                 </Box>
               </Box>
@@ -232,7 +232,7 @@ export default function PrivateBankingPage() {
       {/* CTA */}
       <Box sx={{ bgcolor: CREAM, py: { xs: 7, md: 10 } }}>
         <Box sx={{ maxWidth: 600, mx: "auto", px: { xs: 2.5, sm: 5 }, textAlign: "center" }}>
-          <Typography variant="h3" sx={{ color: NAVY, mb: 2, fontFamily: "Georgia,serif" }}>Ready to begin?</Typography>
+          <Typography variant="h3" sx={{ color: NAVY, mb: 2, fontFamily: "Space Grotesk,sans-serif" }}>Ready to begin?</Typography>
           <Typography sx={{ color: "#4a5568", mb: 4, lineHeight: 1.8 }}>
             We can describe our qualities; however, it is in your discussions with us that you will really see
             their true value – when advice turns into trust.
