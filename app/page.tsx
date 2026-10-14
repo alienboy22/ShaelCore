@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/seo";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
   description:
     "Discover ShaelCore's categorized services: private banking, wealth management, investment advisory, institutional solutions, travel and tours, and real estate.",
   alternates: { canonical: "/" },
+  openGraph: { url: SITE_URL },
 };
 
 const serviceLines = [
